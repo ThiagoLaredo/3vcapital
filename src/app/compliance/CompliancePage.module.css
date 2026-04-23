@@ -1,0 +1,196 @@
+.compliancePage {
+  background-color: var(--surface-base);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Seção de introdução */
+.introSection {
+  padding: 4rem 0 2rem;
+  background-color: transparent;
+}
+
+.introContent {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.introTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--title-color);
+  margin-bottom: 1rem;
+}
+
+.introSubtitle {
+  font-size: 1.2rem;
+  color: var(--paragraph-color, #666);
+  line-height: 1.6;
+}
+
+/* Seção de documentos */
+.documentsSection {
+  padding: 0 0 4rem 0;
+}
+
+.documentsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card de documento */
+.documentCard {
+  background: var(--background-light, #f9fafb);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(14, 152, 153, 0.1);
+  border-radius: 12px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.documentCard:hover {
+  border-color: rgba(14, 152, 153, 0.2);
+  box-shadow: 0 8px 24px rgba(14, 152, 153, 0.08);
+}
+
+.cardIcon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: rgba(14, 152, 153, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdfIcon {
+  font-size: 1.8rem;
+  color: var(--primary-color, #0E9899);
+}
+
+.cardContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.documentTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0;
+  line-height: 1.4;
+  word-break: break-word;
+  text-align: center;
+}
+
+.cardActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 120px;
+}
+
+.viewButton {
+  background: var(--primary-color, #0E9899);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.viewButton:hover {
+  background-color: #0a7a7a;
+}
+
+.arrow {
+  font-size: 1.1em;
+  transition: transform 0.2s ease;
+}
+
+.viewButton:hover .arrow {
+  transform: translateX(3px);
+}
+
+.fileSize {
+  font-size: 0.75rem;
+  color: var(--secondary-color, #888);
+  white-space: nowrap;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .introTitle {
+    font-size: 2rem;
+  }
+
+  .introSubtitle {
+    font-size: 1rem;
+  }
+
+  .documentsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .documentCard {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .cardActions {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .fileSize {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .documentCard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cardIcon {
+    align-self: center;
+  }
+
+  .cardContent {
+    text-align: center;
+  }
+
+  .cardActions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .viewButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

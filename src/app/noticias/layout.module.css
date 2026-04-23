@@ -1,0 +1,32 @@
+/* src/app/noticias/layout.module.css */
+.layout {
+  min-height: 100vh;
+  background-color: var(--surface-base);
+}
+
+.nav {
+  background: var(--surface-elevated);
+  border-bottom: 1px solid rgba(5, 33, 58, 0.1);
+  padding: 1rem 2rem;
+}
+
+.navContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.backLink:hover {
+  background-color: rgba(5, 33, 58, 0.05);
+}

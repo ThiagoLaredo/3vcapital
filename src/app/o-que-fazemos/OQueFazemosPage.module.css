@@ -1,0 +1,177 @@
+.page {
+  min-height: 100vh;
+  background: var(--surface-base);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.blocks {
+  padding: 0 0 5rem;
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(14, 152, 153, 0.12);
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+.block.blockInView {
+  animation: blockReveal 0.8s ease-out forwards;
+}
+
+.block:first-child {
+  padding-top: 0;
+}
+
+.block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.blockReverse {
+  direction: rtl;
+}
+
+.blockReverse > * {
+  direction: ltr;
+}
+
+.blockReverse .blockContent {
+  text-align: right;
+}
+
+.blockImage {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.blockInView .blockImage {
+  animation: imageReveal 0.7s ease-out 0.15s forwards;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.blockContent {
+  padding: 0 0.5rem;
+}
+
+.blockNumberWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 0.75rem;
+}
+
+.numberCircle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--primary-color);
+  opacity: 0.55;
+  transform: rotate(-90deg);
+}
+
+.numberCircle circle {
+  stroke-dashoffset: 113;
+  stroke-linecap: round;
+}
+
+.blockInView .numberCircle circle {
+  animation: circleDraw 0.8s ease-out 0.8s forwards;
+}
+
+.blockNumber {
+  position: relative;
+  z-index: 1;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  letter-spacing: 0.05em;
+}
+
+.blockTitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0 0 1rem 0;
+  line-height: 1.25;
+}
+
+.blockDescription {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--paragraph-color);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .block,
+  .blockReverse {
+    direction: ltr;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+
+  .blockReverse .blockContent {
+    text-align: left;
+  }
+
+  .blockImage {
+    order: 1;
+    aspect-ratio: 16/10;
+  }
+
+  .blockContent {
+    order: 2;
+    text-align: left;
+  }
+
+  .blockTitle {
+    font-size: 1.4rem;
+  }
+}
+
+@keyframes blockReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes imageReveal {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes circleDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

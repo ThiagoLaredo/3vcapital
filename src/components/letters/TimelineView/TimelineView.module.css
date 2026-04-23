@@ -1,0 +1,232 @@
+/* components/letters/TimelineView/TimelineView.module.css */
+.timelineView {
+  position: relative;
+  padding-left: 2rem;
+}
+
+/* Linha vertical da timeline */
+.timelineView::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--primary-color) 10%,
+    var(--primary-color) 90%,
+    transparent
+  );
+}
+
+.yearSection {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.yearSection:last-child {
+  margin-bottom: 0;
+}
+
+.yearTitle {
+  font-size: 1.5rem;
+  color: var(--title-color);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: flex-start;
+  padding-left: 1rem;
+}
+
+.timelineItem:last-child {
+  margin-bottom: 0;
+}
+
+.timelineMarker {
+  position: absolute;
+  left: -0.5rem;
+  top: 0.5rem;
+  z-index: 1;
+}
+
+.markerDot {
+  width: 16px;
+  height: 16px;
+  background: var(--surface-elevated);
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
+}
+
+.markerDate {
+  position: absolute;
+  top: -0.5rem;
+  left: -3rem;
+  font-size: 0.875rem;
+  color: var(--paragraph-color);
+  white-space: nowrap;
+  background: var(--surface-elevated);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.timelineContent {
+  flex: 1;
+  margin-left: 2rem;
+}
+
+.timelineCard {
+  background: var(--surface-elevated);
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.timelineCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.letterTitle {
+  font-size: 1.25rem;
+  color: var(--title-color);
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.fileIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--background-light);
+  border-radius: 8px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.fileIndicator:hover {
+  background: var(--primary-color);
+  transform: scale(1.05);
+}
+
+.fileIndicator:hover .fileIcon {
+  color: white;
+}
+
+.fileIcon {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  transition: color 0.2s;
+}
+
+.letterDescription {
+  color: var(--paragraph-color);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid #eaeaea;
+}
+
+.pdfButton {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pdfButton:hover {
+  background: rgba(0, 112, 243, 0.05);
+  text-decoration: none;
+}
+
+.fileSize {
+  font-size: 0.875rem;
+  color: var(--secondary-color);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .timelineView {
+    padding-left: 1rem;
+  }
+
+  .timelineView::before {
+    left: 0.5rem;
+  }
+
+  .yearTitle {
+    padding-left: 0;
+  }
+
+  .timelineItem {
+    padding-left: 0.5rem;
+  }
+
+  .timelineMarker {
+    left: 0;
+  }
+
+  .markerDate {
+    left: -2.5rem;
+  }
+
+  .timelineContent {
+    margin-left: 1.5rem;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .letterTitle {
+    padding-right: 0;
+  }
+
+  .cardFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

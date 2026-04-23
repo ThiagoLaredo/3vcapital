@@ -1,0 +1,51 @@
+.page {
+  min-height: 100vh;
+  background: var(--surface-base);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.aboutSection {
+  padding: 0 0 5rem;
+}
+
+.aboutBlock {
+  padding: 0;
+  border-bottom: 1px solid rgba(14, 152, 153, 0.12);
+}
+
+.aboutMedia {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 768px) {
+
+   .page {
+    min-height: auto;
+   } 
+   
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .aboutSection {
+    padding: 0 0 3rem;
+  }
+
+  .aboutMedia {
+    aspect-ratio: 16 / 10;
+  }
+}

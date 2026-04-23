@@ -1,0 +1,68 @@
+/* app/globals.css ou styles/globals.css */
+:root {
+  --primary-color: #0e9899;
+  --primary-color-dark: #0a7172; 
+  --primary-color-light: #4fb9ba;
+  --primary-color-soft: #bfded7;
+  --primary-color-deep: #086061;
+  --secondary-color: #989999;    
+  --title: #0e9899;
+  --title-color: #0e9899;
+  --paragraph-color: #647887;    
+  --background-light: #dfe7e7;
+  --background-muted: #edf2f1;
+  --surface-base: #e8efee;
+  --surface-elevated: #f1f5f4;
+  --surface-strong: #d8e2e1;
+  --white: #ffffff;
+  --black: #000000;
+  --header-height: 100px;
+  
+  /* Cores adicionais para feedback */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+body {
+  color: var(--paragraph-color);
+  background:
+    radial-gradient(circle at top, rgba(14, 152, 153, 0.08), transparent 38%),
+    linear-gradient(180deg, var(--surface-base) 0%, var(--background-muted) 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  font-family: var(--font-playfair-display), sans-serif;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 88px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-height: 82px;
+  }
+}

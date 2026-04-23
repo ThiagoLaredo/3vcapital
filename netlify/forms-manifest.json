@@ -1,0 +1,28 @@
+{
+  "forms": [
+    {
+      "name": "contato-golden-capital",
+      "action": "/contato",
+      "fields": [
+        {
+          "name": "name",
+          "required": true
+        },
+        {
+          "name": "email",
+          "required": true
+        },
+        {
+          "name": "phone"
+        },
+        {
+          "name": "company"
+        },
+        {
+          "name": "message",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

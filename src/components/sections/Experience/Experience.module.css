@@ -1,0 +1,154 @@
+.experience {
+  padding: 6rem 0 6rem 0;
+  /* background: var(--surface-base); */
+  overflow: hidden;
+  scroll-margin-top: 7rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.content {
+  position: relative;
+  max-width: 800px;
+  text-align: left; /* Alinhamento à esquerda */
+}
+
+.decorativeCurve {
+  position: absolute;
+  top: -2.2rem;
+  right: -12rem;
+  width: clamp(260px, 34vw, 420px);
+  height: clamp(150px, 18vw, 220px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.9;
+  will-change: transform, opacity;
+}
+
+.decorativeCurveSvg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.decorativeCurvePrimary,
+.decorativeCurveSecondary {
+  fill: none;
+  stroke-linecap: round;
+  will-change: stroke-dashoffset, opacity;
+}
+
+.decorativeCurvePrimary {
+  stroke: color-mix(in srgb, var(--secondary-color) 78%, white 22%);
+  stroke-width: 2.5;
+}
+
+.decorativeCurveSecondary {
+  stroke: color-mix(in srgb, var(--primary-color) 18%, transparent 82%);
+  stroke-width: 1.5;
+}
+
+.title {
+  font-size: .85rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+/* Estilo para a declaração principal (agora H3) */
+.mainStatement {
+  font-size: 3rem; /* Aumentado de 1.8rem */
+  line-height: 1.3;
+  font-weight: 300; /* Fonte mais fina */
+  margin-bottom: 1.5rem;
+  color: var(--title-color);
+  position: relative;
+  z-index: 1;
+}
+
+/* Estilo para o texto que será animado letra por letra */
+.animatedText {
+  font-weight: 600; /* Apenas o texto animado tem espessura grossa */
+  display: inline-block;
+  color: var(--primary-color-dark);
+}
+
+/* Estilo para o texto adicional */
+.additionalText {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--paragraph-color);
+  margin-top: 1.5rem;
+  font-weight: 300; /* Fonte mais fina */
+  max-width: 90%;
+}
+
+/* Estilo para as letras individuais (serão criadas via JS) */
+.animatedText span {
+  display: inline-block;
+}
+
+@media (max-width: 1024px) {
+  .decorativeCurve {
+    top: -1.5rem;
+    right: -5rem;
+    width: clamp(220px, 38vw, 320px);
+    height: clamp(130px, 20vw, 190px);
+  }
+
+  .mainStatement {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: 3rem 0 0 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .content {
+  max-width: none;
+  }
+
+  .decorativeCurve {
+    display: none;
+  }
+
+  .title {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .mainStatement {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+
+  .additionalText {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainStatement {
+    font-size: 1.5rem;
+  }
+
+  .additionalText {
+    font-size: 0.95rem;
+  }
+}

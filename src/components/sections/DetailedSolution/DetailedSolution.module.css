@@ -1,0 +1,171 @@
+.solutionSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.solutionSection:last-child {
+  margin-bottom: 0;
+}
+
+/* Layout reverso (imagem à direita) */
+.reverse {
+  direction: rtl;
+}
+
+.reverse .imageColumn,
+.reverse .contentColumn {
+  direction: ltr;
+}
+
+/* Coluna da Imagem */
+.imageColumn {
+  position: relative;
+}
+
+.imageContainer {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  background: #f5f5f5; /* Cor de fundo caso a imagem não carregue */
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Quando a imagem está à direita (reverse), alinha o texto à direita */
+.reverse .contentColumn {
+  text-align: right;
+}
+
+/* Coluna do Conteúdo */
+.contentColumn {
+  padding: 0 2rem;
+}
+
+/* Número da solução - acima do título */
+.solutionNumber {
+  font-size: .9rem;
+  color: var(--secondary-color);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+}
+
+.solutionTitle {
+  font-size: 2rem;
+  color: var(--title-color);
+  font-weight: 300;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.solutionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.solutionItem {
+  display: flex;
+  align-items: flex-start;
+  color: var(--paragraph-color);
+  line-height: 1.4;
+  font-size: 1.125rem;
+}
+
+/* Quando o layout é reverso, inverte a direção dos itens da lista */
+.reverse .solutionItem {
+  flex-direction: row-reverse; /* Inverte a direção do flex */
+}
+
+@media (max-width: 1024px) {
+  .solutionSection {
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+  
+  .contentColumn {
+    padding: 0 1rem;
+  }
+  
+  .solutionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .imageWrapper {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .solutionSection {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .reverse {
+    direction: ltr;
+  }
+
+  .reverse .contentColumn {
+    text-align: left;
+  }
+
+  .reverse .solutionItem {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  
+  .contentColumn {
+    padding: 0;
+  }
+  
+  .solutionTitle {
+    font-size: 1.6rem;
+  }
+  
+  .imageWrapper {
+    height: 300px;
+  }
+  
+  .solutionNumber {
+    font-size: 1.1rem;
+  }
+
+  .solutionNumber, .solutionTitle {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .solutionSection {
+    gap: 1.5rem;
+  }
+  
+  .imageWrapper {
+    height: 250px;
+  }
+  
+  .solutionNumber {
+    font-size: 1rem;
+  }
+  
+  .solutionTitle {
+    font-size: 1.4rem;
+  }
+}

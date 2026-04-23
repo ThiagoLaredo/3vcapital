@@ -1,0 +1,45 @@
+.animatedText {
+  display: inline;
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal !important;
+}
+
+/* Container de palavra - garante que palavras não quebrem */
+.animatedText span[style*="white-space: nowrap"] {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+
+/* Letras dentro das palavras */
+.animatedText span[style*="white-space: nowrap"] > span {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-kerning: auto;
+  letter-spacing: normal;
+}
+
+/* Espaços */
+.animatedText span[style*="white-space: pre"] {
+  display: inline;
+  white-space: pre;
+}
+
+/* Para telas pequenas, ajustar quebra */
+@media (max-width: 768px) {
+  .animatedText {
+    word-break: break-word;
+    hyphens: auto;
+  }
+  
+  /* Em telas muito pequenas, permitir quebra de palavras longas */
+  .animatedText span[style*="white-space: nowrap"] {
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+

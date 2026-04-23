@@ -1,0 +1,224 @@
+.footer {
+  background: var(--primary-color);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 4rem 0 2.5rem;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Linha principal: Logo | Contato | Mapa */
+.mainRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: 3rem;
+  align-items: start;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.blockLogo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.logo {
+  width: auto;
+  height: 56px;
+  object-fit: contain;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.blockTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 1rem 0;
+}
+
+.blockContact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 300;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--primary-color-light, #4fb9ba);
+}
+
+.linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 300;
+  margin-top: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.linkedin:hover {
+  color: var(--primary-color-light, #4fb9ba);
+}
+
+.linkedinIcon {
+  font-size: 1.25rem;
+}
+
+.blockMap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.addressText {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.mapWrap {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.mapWrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Selos */
+.selos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.selo {
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+  width: 160px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.selo:hover {
+  opacity: 1;
+}
+
+/* Copyright */
+.bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .mainRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .blockMap {
+    grid-column: 1 / -1;
+  }
+
+  .mapWrap {
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 0 2rem;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .mainRow {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .blockLogo {
+    align-items: center;
+    text-align: center;
+  }
+
+  .blockContact {
+    align-items: center;
+    text-align: center;
+  }
+
+  .blockMap {
+    align-items: center;
+    text-align: center;
+  }
+
+  .mapWrap {
+    height: 180px;
+    width: 100%;
+  }
+
+  .selos {
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+  }
+  
+  .selo {
+      width: 100px;
+      height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 48px;
+  }
+
+  .copyright {
+    font-size: 0.8rem;
+  }
+}

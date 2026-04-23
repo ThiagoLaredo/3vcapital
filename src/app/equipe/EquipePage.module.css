@@ -1,0 +1,50 @@
+/* src/app/equipe/EquipePage.module.css */
+
+.equipePage {
+  font-family: inherit;
+  background: linear-gradient(180deg, var(--surface-base) 0%, var(--background-light) 100%);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* NOTA: Intro das páginas internas está no componente PageIntroSection */
+
+/* Team Grid */
+.equipeGrid {
+  padding: 0 0 4rem 0;
+  background: transparent;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  opacity: 1; /* Para animação */
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .equipeGrid {
+    padding: 0 0 3rem 0;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

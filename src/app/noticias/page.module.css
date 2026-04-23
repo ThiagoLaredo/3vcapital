@@ -1,0 +1,84 @@
+/* src/app/noticias/page.module.css */
+.noticiasPage {
+  min-height: 100vh;
+  background: var(--surface-base);
+}
+
+.newsSection {
+  padding: 0 0 4rem 0;
+  background: transparent;
+}
+
+.container {
+  max-width: 1000px; /* Largura máxima para centralização */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Lista vertical de cards */
+.newsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espaço entre os cards */
+  width: 100%;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--paragraph-color);
+  font-size: 1.1rem;
+  background-color: var(--surface-elevated);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(5, 33, 58, 0.05);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Loading e Error States */
+.loadingContainer, .errorContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.loader {
+  color: var(--paragraph-color);
+  font-size: 1.1rem;
+  animation: pulse 1.5s infinite;
+}
+
+.errorContainer h2 {
+  color: var(--title-color);
+  margin-bottom: 1rem;
+}
+
+.errorContainer p {
+  color: var(--paragraph-color);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .newsSection {
+    padding: 0 0 2rem 0;
+  }
+  
+  .newsList {
+    gap: 1rem;
+  }
+}

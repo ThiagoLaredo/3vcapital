@@ -1,0 +1,98 @@
+/* components/buttons/PDFButton/PDFButton.module.css */
+.pdfButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  border: none;
+  font-family: inherit;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Variantes */
+.primary {
+  background-color: var(--primary-color, #0E9899);
+  color: white;
+  padding: 0.75rem 1.5rem;
+}
+
+.primary:hover {
+  background-color: var(--primary-color-dark, #0a7a7a);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(14, 152, 153, 0.3);
+}
+
+.secondary {
+  background-color: transparent;
+  color: var(--primary-color, #0E9899);
+  border: 2px solid var(--primary-color, #0E9899);
+  padding: 0.625rem 1.25rem;
+}
+
+.secondary:hover {
+  background-color: rgba(14, 152, 153, 0.1);
+}
+
+.ghost {
+  background-color: transparent;
+  color: var(--primary-color, #0E9899);
+  padding: 0.5rem 1rem;
+  border: none;
+}
+
+.ghost:hover {
+  background-color: rgba(14, 152, 153, 0.05);
+  text-decoration: underline;
+}
+
+/* Tamanhos */
+.small {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+.medium {
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.large {
+  font-size: 1rem;
+  padding: 1rem 2rem;
+}
+
+/* Ajustes para os tamanhos nas variantes */
+.secondary.small {
+  padding: 0.375rem 0.875rem;
+}
+
+.ghost.small {
+  padding: 0.25rem 0.75rem;
+}
+
+/* Ícone da seta */
+.arrowIcon {
+  font-size: 1.2em;
+  transition: transform 0.2s ease;
+}
+
+.pdfButton:hover .arrowIcon {
+  transform: translateX(3px);
+}
+
+/* Estado desabilitado */
+.pdfButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pdfButton:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}

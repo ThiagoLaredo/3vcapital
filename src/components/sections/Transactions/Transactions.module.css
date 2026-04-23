@@ -1,0 +1,76 @@
+.transactions {
+  padding: 6rem 0;
+  background: var(--primary-color); /* Fundo azul marinho */
+  color: var(--white); /* Texto branco */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.title {
+  text-align: center;
+  font-size: .85rem;
+  letter-spacing: .2em;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 4rem;
+  color: var(--white); /* Título em dourado */
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.value {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--white); /* Números em dourado */
+  margin-bottom: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  font-size: 1.1rem;
+  color: var(--white); /* Labels em cinza */
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+
+  .container {
+  padding: 0 1rem;
+  }
+
+  .title {
+    font-size: .8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .value {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+  }
+
+  .label {
+  font-size: 1rem;
+  color: var(--white);
+}
+  
+  .transactions {
+    padding: 3rem 0;
+  }
+}

@@ -1,0 +1,72 @@
+/* components/letters/MonthSelector/MonthSelector.module.css - VERSÃO FINAL 2 LINHAS */
+.monthSelector {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* Sempre 7 colunas */
+  gap: 0.5rem;
+}
+
+.monthButton {
+  padding: 0.5rem 0.25rem;
+  border: 1px solid #ddd;
+  background: var(--surface-elevated);
+  color: var(--paragraph-color);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  /* min-height: 2.5rem; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  /* Garante que o texto não quebre */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.monthButton:hover {
+  background: var(--surface-strong);
+  border-color: var(--primary-color);
+}
+
+.monthButton.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Para telas menores, reduzimos o gap e o font-size */
+@media (max-width: 1024px) {
+  .monthSelector {
+    gap: 0.4rem;
+  }
+  
+  .monthButton {
+    font-size: 0.85rem;
+    min-height: 2.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .monthSelector {
+    gap: 0.3rem;
+  }
+  
+  .monthButton {
+    font-size: 0.8rem;
+    min-height: 2rem;
+    padding: 0.4rem 0.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .monthSelector {
+    gap: 0.2rem;
+  }
+  
+  .monthButton {
+    font-size: 0.75rem;
+    min-height: 1.75rem;
+  }
+}
