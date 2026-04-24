@@ -29,14 +29,12 @@
   object-fit: cover;
   object-position: 10% 10%; /* move o ponto de referência da imagem para baixo */
   filter: none;
-  mix-blend-mode: multiply;
   border-radius: 8px 0;
-  transition: filter 0.3s ease;
 }
-
+/* 
 .teamCard:hover .photo {
   filter: grayscale(100%);
-}
+} */
 
 .cardContent {
   padding: 1rem;

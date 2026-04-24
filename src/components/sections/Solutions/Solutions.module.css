@@ -1,12 +1,14 @@
 .solutions {
   padding: 4rem 0 8rem;
-  /* background: var(--surface-base); */
+  background: var(--background-primary-dark);
   position: relative;
   overflow-x: hidden;
 }
 
 :root {
   --solutions-media-ratio: 3 / 2;
+  --solutions-image-focus-x: 10%;
+  --solutions-image-tint-opacity: 0.32;
 }
 
 .container {
@@ -178,7 +180,7 @@
 
 .stepDescription {
   font-size: 1.2rem;
-  color: var(--paragraph-color);
+  color: var(--text-on-dark);
   line-height: 1.8;
   font-weight: 300;
   margin: 0;
@@ -266,6 +268,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  /* Retângulo irregular em diagonal: topo-esq(70%,0) → topo-dir(100%,30%) → fundo-dir(100%,100%) → fundo-esq(60%,100%) */
+  clip-path: polygon(
+    70% 0,
+    100% 20%,
+    100% 100%,
+    10% 100%
+  );
 }
 
 /* Animação com imagens */
@@ -276,6 +286,16 @@
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.stepImageWrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--primary-color);
+  mix-blend-mode: multiply;
+  opacity: var(--solutions-image-tint-opacity);
+  pointer-events: none;
+}
+
 .stepImageWrapper.stepImageActive {
   opacity: 1;
   z-index: 1;
@@ -283,7 +303,7 @@
 
 .stepImage {
   object-fit: cover;
-  object-position: center;
+  object-position: var(--solutions-image-focus-x) center;
   border-radius: 0;
 }
 
@@ -356,6 +376,14 @@
   .solutions {
     padding: 6rem 0 4rem;
     overflow: visible;
+  }
+
+  .animationCanvas {
+    clip-path: none;
+  }
+
+  .stepImage {
+    object-position: center;
   }
 
   .animationWrapper {
@@ -518,7 +546,7 @@
 
   .stepImage {
     border-radius: 12px;
-}
+  }
 
   .stepIndicator {
     flex-direction: row;
