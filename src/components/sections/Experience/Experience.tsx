@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../../../contexts/LanguageContext';
 import { pt, en } from '../../../lib/translations';
 import AnimatedPhrase from '@/components/ui/AnimatedPhrase/AnimatedPhrase';
+import Link from 'next/link';
 import styles from './Experience.module.css';
 import { useScrollTriggerReset } from '../../../hooks/useScrollTriggerReset';
 
@@ -81,8 +82,8 @@ export default function Experience() {
   }, [animationKey]);
 
   const animatedPhrases = {
-    pt: ['proteger,', 'desenvolver e', 'preservar', 'o patrimônio'],
-    en: ['protect,', 'develop, ', 'and preserve', 'our clients assets'],
+    pt: ['gestora de patrimônio independente,', 'decisões patrimoniais', 'visão de longo prazo'],
+    en: ['independent asset management firm,', 'asset decisions', 'long-term vision'],
   };
 
   const renderTextWithHighlights = (text: string) => {
@@ -133,6 +134,9 @@ export default function Experience() {
             <h2 className={styles.mainStatement}>
               {renderTextWithHighlights(translations.Home.experience.paragraphs[0])}
             </h2>
+            <Link href="/quem-somos" className={styles.ctaButton}>
+              {translations.Home.experience?.cta ?? (language === 'pt' ? 'Saiba mais' : 'Learn more')}
+            </Link>
             {/* <p className={styles.additionalText}>
               {additionalText[language as keyof typeof additionalText]}
             </p> */}

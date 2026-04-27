@@ -2,7 +2,7 @@ export const pt = {
   Navigation: {
     home: "Home",
     whatWeDo: "O que fazemos",
-    aboutUs: "Sobre nós",
+    aboutUs: "Quem somos",
     team: "Equipe",
     ourValues: "Nossos valores",
     publications: "Publicações",
@@ -38,26 +38,40 @@ export const pt = {
       ]
     },
     experience: {
-      title: "Sobre Nós",
+      title: "Quem Somos",
       paragraphs: [
-        "Nosso objetivo é proteger, desenvolver e preservar o patrimônio de nossos clientes perpetuando o seu legado.",
-        "Oferecemos aos nossos clientes orientação, planejamento financeiro personalizado, estratégias de investimentos e sua implementação."
+        "Somos uma gestora de patrimônio independente, voltada para apoiar decisões patrimoniais com assertividade, método e visão de longo prazo.",
+      ],
+      cta: "Saiba mais",
+    },
+    nossosServicos: {
+      label: "Nossos Serviços",
+      paragraphs: [
+        "Fazemos a Gestão de Portfólios onshore e offshore através de Fundos Exclusivos abertos e fechados e Carteiras Administradas com gestão discricionária e não discricionária.",
+        "Gerimos o patrimônio de nossos clientes, sendo parceiros no entendimento de suas necessidades e das circunstâncias que os cercam ao longo da vida, buscando a preservação e o aumento de seu patrimônio."
       ]
     },
     solutions: {
-      title: "Nossas soluções",
       items: [
         {
-          title: "Planejamento Financeiro",
-          description: "Atuamos em conjunto com nossos clientes no intuito de entender suas aspirações, particularidades, e demais aspectos que envolvem o seu patrimônio.",
+          title: "Independência com total alinhamento",
+          description: "Avaliação do portfólio de forma isenta através de diagnóstico. Gestão do patrimônio sem conflitos de interesse, com transparência na remuneração e eficiência de custos.",
         },
         {
-          title: "Implementação",
-          description: "Buscamos os melhores investimentos em ativos financeiros no Brasil ou no exterior, sempre atentos à eficiência de custos e à otimização dos retornos dos portfólios."
+          title: "Visão integrada do patrimônio",
+          description: "Investimentos no Brasil e no exterior, trazendo uma visão integrada de estruturas, riscos, liquidez e sucessão."
         },
         {
-          title: "Acompanhamento",
-          description: "Realizamos relatórios de consolidação de investimentos mantidos em diferentes instituições e geografias, personalizando informações de forma simples e transparente. Revisamos periodicamente o portfólio de nossos clientes, buscando as melhores oportunidades e estratégias, cumprindo rigorosamente os controles de riscos e Compliance."
+          title: "Consolidação patrimonial",
+          description: "Diferentes instituições e geografias reunidas em um único relatório consolidador."
+        },
+        {
+          title: "Atendimento próximo e personalizado",
+          description: "Atendimento exclusivo e próximo com uma equipe dedicada e multidisciplinar."
+        },
+        {
+          title: "Planejamento financeiro e patrimonial",
+          description: "Oferecemos aos nossos clientes o serviço de planejamento financeiro e patrimonial integrado à gestão patrimonial."
         },
       ]
     },
@@ -168,9 +182,9 @@ export const pt = {
       phraseToAnimate: "Gerimos o patrimônio de nossos clientes",
     },
   },
-  SobreNosPage: {
+  QuemSomosPage: {
     hero: {
-      title: "Sobre Nós",
+      title: "Quem Somos",
     },
     intro: {
       fullText: "Nosso objetivo é proteger, desenvolver e preservar o patrimônio de nossos clientes perpetuando o seu legado. Oferecemos aos nossos clientes orientação, planejamento financeiro personalizado, estratégias de investimentos e sua implementação.",

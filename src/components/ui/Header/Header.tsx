@@ -91,7 +91,7 @@ const Header = () => {
 
   const navItems = [
     { href: '/o-que-fazemos', label: translations.Navigation.whatWeDo },
-    { href: '/sobre-nos', label: translations.Navigation.aboutUs },
+    { href: '/quem-somos', label: translations.Navigation.aboutUs },
     { href: '/equipe', label: translations.Navigation.team },
     { href: '/nossos-valores', label: translations.Navigation.ourValues },
     { href: '/compliance', label: translations.Navigation.compliance },

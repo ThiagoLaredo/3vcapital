@@ -1,0 +1,124 @@
+.section {
+  background: var(--primary-color);
+  position: relative;
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Layout dividido: imagem esquerda, texto direita */
+.splitLayout {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  min-height: 80vh;
+}
+
+/* Coluna esquerda — imagem com máscara */
+.imageColumn {
+  flex: 0 0 50vw;
+  position: relative;
+  overflow: visible;
+}
+
+/* Canvas da imagem com clip-path espelhado de Diferenciais */
+/* Diferenciais: polygon(70% 0, 100% 20%, 100% 100%, 10% 100%) — corte à esquerda */
+/* Aqui: espelho horizontal — corte à direita */
+.imageCanvas {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  clip-path: polygon(0 0, 30% 0, 90% 100%, 0 100%);
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Tint sobre a imagem */
+.imageTint {
+  position: absolute;
+  inset: 0;
+  background: var(--primary-color);
+  mix-blend-mode: multiply;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Coluna direita — texto */
+.textColumn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 6rem max(2rem, calc((100vw - 1200px) / 2 + 2rem)) 6rem clamp(3rem, 5vw, 6rem);
+}
+
+.content {
+  max-width: 540px;
+}
+
+.sectionLabel {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--primary-color-soft);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 2.5rem;
+}
+
+.paragraph {
+  font-size: 1.2rem;
+  color: var(--text-on-dark);
+  line-height: 1.85;
+  font-weight: 300;
+  margin: 0 0 2rem 0;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .section {
+    min-height: 0;
+  }
+
+  .splitLayout {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .imageColumn {
+    flex: 0 0 auto;
+    width: 100%;
+    height: clamp(280px, 55vw, 420px);
+    overflow: hidden;
+  }
+
+  .imageCanvas {
+    clip-path: none;
+    border-radius: 0;
+  }
+
+  .textColumn {
+    padding: 3rem 2rem;
+  }
+
+  .content {
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .imageColumn {
+    height: clamp(220px, 65vw, 340px);
+  }
+
+  .paragraph {
+    font-size: 1.1rem;
+  }
+}

@@ -5,7 +5,7 @@ import { pt, en } from '../../../lib/translations';
 import { SOLUTION_STEP_IMAGES } from '../../../lib/solutionImages';
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import styles from './Solutions.module.css';
+import styles from './Diferenciais.module.css';
 
 const SOLUTION_MEDIA_RATIO = 3 / 2;
 const SOLUTION_IMAGE_SIZES = '(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 50vw';
@@ -13,6 +13,11 @@ const SOLUTION_IMAGE_SIZES = '(max-width: 768px) 100vw, (max-width: 1024px) 90vw
 export default function Solutions() {
   const { language } = useLanguage();
   const translations = language === 'pt' ? pt : en;
+  const solutions = translations.Home.solutions.items;
+  const totalSteps = Math.max(solutions.length, 1);
+  const solutionImages = solutions.map((_, index) =>
+    SOLUTION_STEP_IMAGES[index % SOLUTION_STEP_IMAGES.length]
+  );
   const [activeStep, setActiveStep] = useState(-1);
   const [progress, setProgress] = useState(0);
   const [isSticky, setIsSticky] = useState(false);
@@ -43,7 +48,7 @@ export default function Solutions() {
       const wrapperRect = animation.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       const isMobile = typeof window !== 'undefined' && window.innerWidth <= 1024;
-      const entryOffset = isMobile ? 140 : 120;
+      const entryOffset = isMobile ? 140 : 0;
 
       setIsMobileLayout(isMobile);
 
@@ -67,7 +72,8 @@ export default function Solutions() {
       // Atualiza o step ativo (quando centro do step cruza 50% da viewport)
       let newActiveStep = 0;
       const triggerLine = windowHeight * 0.8;
-      stepsRef.current.forEach((step, index) => {
+      solutions.forEach((_, index) => {
+        const step = stepsRef.current[index];
         if (step) {
           const stepRect = step.getBoundingClientRect();
           const stepCenter = stepRect.top + stepRect.height / 2;
@@ -76,10 +82,10 @@ export default function Solutions() {
           }
         }
       });
-      setActiveStep(sectionStarted ? newActiveStep : -1);
+      setActiveStep(sectionStarted ? Math.min(newActiveStep, totalSteps - 1) : -1);
 
-      // Progresso: 0% antes da section, 33%/66%/100% conforme os steps
-      const scrollProgress = sectionStarted ? (newActiveStep + 1) / 3 : 0;
+      // Progresso: 0% antes da section e distribuição proporcional pelo total de steps.
+      const scrollProgress = sectionStarted ? (newActiveStep + 1) / totalSteps : 0;
       setProgress(scrollProgress);
 
       // Solta apenas quando a própria section estiver chegando ao fim.
@@ -113,9 +119,7 @@ export default function Solutions() {
       clearTimeout(t1);
       clearTimeout(t2);
     };
-  }, [pathname]);
-
-  const solutions = translations.Home.solutions.items;
+  }, [pathname, totalSteps, solutions]);
   const galleryMotionClass = isMobileLayout
     ? (stickyBottom ? styles.motionExiting : styles.motionVisible)
     : !fixedPosition.visible
@@ -128,7 +132,9 @@ export default function Solutions() {
     <section ref={sectionRef} className={styles.solutions}>
       <div className={styles.container}>
         <header ref={headerRef} className={styles.header}>
-          <span className={styles.sectionLabel}>{translations.Home.solutions.title}</span>
+          <span className={styles.sectionLabel}>
+            {language === 'pt' ? 'Nossos Diferenciais' : 'Our Differentiators'}
+          </span>
           {/* <h2 className={styles.sectionTitle}>
             {language === 'pt' ? 'Como trabalhamos' : 'How we work'}
           </h2> */}
@@ -143,7 +149,7 @@ export default function Solutions() {
             <div className={`${styles.animationMotion} ${galleryMotionClass}`}>
               <div className={styles.animationContainer}>
                 <div className={styles.animationCanvas}>
-                  {SOLUTION_STEP_IMAGES.map((src, index) => (
+                  {solutionImages.map((src, index) => (
                     <div
                       key={index}
                       className={`${styles.stepImageWrapper} ${activeStep === index ? styles.stepImageActive : ''}`}
@@ -188,7 +194,7 @@ export default function Solutions() {
               <div className={styles.progressTrack}>
                 <div
                   className={styles.progressLine}
-                  style={{ height: `${Math.min(progress * 150, 100)}%` }}
+                  style={{ height: `${Math.min(progress * 100, 100)}%` }}
                 />
               </div>
 
@@ -232,7 +238,7 @@ export default function Solutions() {
                 <div className={`${styles.animationMotion} ${galleryMotionClass}`}>
                   <div className={styles.animationContainer}>
                     <div className={styles.animationCanvas}>
-                      {SOLUTION_STEP_IMAGES.map((src, index) => (
+                      {solutionImages.map((src, index) => (
                         <div
                           key={index}
                           className={`${styles.stepImageWrapper} ${activeStep === index ? styles.stepImageActive : ''}`}

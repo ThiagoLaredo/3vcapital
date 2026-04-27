@@ -46,7 +46,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-color));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,8 +70,10 @@
   width: 100%;
   height: 100%;
 background: linear-gradient(to right, 
-    rgba(14, 152, 153, 0.83) 0%, 
-    rgba(14, 152, 153, 0.83) 100%);
+    rgba(14, 152, 153, 0.9) 0%, 
+    rgba(14, 152, 153, 0.8) 30%, 
+    rgba(0, 0, 0, 0.3) 70%, 
+    rgba(0, 0, 0, 0.3) 100%);
   z-index: 1;
 }
 

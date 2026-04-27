@@ -2,7 +2,7 @@ export const en = {
   Navigation: {
     home: "Home",
     whatWeDo: "What we do",
-    aboutUs: "About us",
+    aboutUs: "Who we are",
     team: "Team",
     ourValues: "Our values",
     publications: "Publications",
@@ -38,26 +38,40 @@ export const en = {
       ]
     },
     experience: {
-      title: "About Us",
+      title: "Who we are",
       paragraphs: [
-        "Our goal is to protect, develop, and preserve our clients assets, perpetuating their legacy.",
-        "We offer our clients guidance, personalized financial planning, investment strategies, and their implementation."
+        "We are an independent asset management firm, focused on supporting asset decisions with assertiveness, method, and long-term vision.",
+      ],
+      cta: "Learn more",
+    },
+    nossosServicos: {
+      label: "Our Services",
+      paragraphs: [
+        "We manage onshore and offshore portfolios through exclusive open and closed-end funds and Managed Accounts with discretionary and non-discretionary management.",
+        "We manage our clients' wealth as partners in understanding their needs and the circumstances surrounding them throughout their lives, seeking to preserve and grow their assets."
       ]
     },
     solutions: {
-      title: "Our solutions", 
       items: [
         {
-          title: "Financial Planning",
-          description: "We work closely with our clients to understand their aspirations, particularities, and other aspects related to their assets.",
+          title: "Independence with full alignment",
+          description: "Unbiased portfolio assessment through a diagnostic approach. Asset management with no conflicts of interest, transparent remuneration, and cost efficiency.",
         },
         {
-          title: "Implementation",
-          description: "We seek the best investments in financial assets in Brazil or abroad, always attentive to cost efficiency and portfolio return optimization."
+          title: "Integrated view of wealth",
+          description: "Investments in Brazil and abroad, providing an integrated view of structures, risks, liquidity, and succession."
         },
         {
-          title: "Monitoring",
-          description: "We provide consolidation reports of investments held in different institutions and geographies, personalizing information in a simple and transparent way. We periodically review our clients' portfolios, seeking the best opportunities and strategies, strictly complying with risk and compliance controls."
+          title: "Wealth consolidation",
+          description: "Different institutions and geographies consolidated into a single report."
+        },
+        {
+          title: "Close and personalized service",
+          description: "Exclusive and close service with a dedicated, multidisciplinary team."
+        },
+        {
+          title: "Financial and wealth planning",
+          description: "We offer our clients integrated financial and wealth planning as part of overall asset management."
         },
       ]
     },
@@ -159,9 +173,9 @@ export const en = {
       phraseToAnimate: "We manage our clients' assets",
     },
   },
-  SobreNosPage: {
+  QuemSomosPage: {
     hero: {
-      title: "About Us",
+      title: "Who we are",
     },
     intro: {
       fullText: "Our goal is to protect, develop, and preserve our clients' assets, perpetuating their legacy. We offer our clients guidance, personalized financial planning, investment strategies, and implementation.",

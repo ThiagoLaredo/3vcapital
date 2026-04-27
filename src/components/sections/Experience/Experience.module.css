@@ -13,14 +13,14 @@
 
 .content {
   position: relative;
-  max-width: 800px;
+  max-width: 900px;
   text-align: left; /* Alinhamento à esquerda */
 }
 
 .decorativeCurve {
   position: absolute;
-  top: -2.2rem;
-  right: -12rem;
+  top: 1.2rem;
+  right: -20rem;
   width: clamp(260px, 34vw, 420px);
   height: clamp(150px, 18vw, 220px);
   pointer-events: none;
@@ -92,6 +92,35 @@
   max-width: 90%;
 }
 
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 1.25rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(8, 96, 97, 0.14);
+  background: var(--primary-color-dark);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px rgba(8, 96, 97, 0.18);
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.ctaButton:hover {
+  background: var(--primary-color-deep);
+  border-color: rgba(8, 96, 97, 0.22);
+  box-shadow: 0 14px 28px rgba(8, 96, 97, 0.24);
+  color: var(--white);
+}
+
 /* Estilo para as letras individuais (serão criadas via JS) */
 .animatedText span {
   display: inline-block;
@@ -140,6 +169,10 @@
   .additionalText {
     font-size: 1rem;
     max-width: 100%;
+  }
+
+  .ctaButton {
+    margin-top: 1rem;
   }
 }
 
