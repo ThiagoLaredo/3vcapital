@@ -1,5 +1,5 @@
 .section {
-  background: var(--primary-color);
+  background: var(--background-primary-dark);
   position: relative;
   overflow: hidden;
   min-height: 80vh;
@@ -22,14 +22,27 @@
   overflow: visible;
 }
 
-/* Canvas da imagem com clip-path espelhado de Diferenciais */
-/* Diferenciais: polygon(70% 0, 100% 20%, 100% 100%, 10% 100%) — corte à esquerda */
-/* Aqui: espelho horizontal — corte à direita */
+/* Borda decorativa na diagonal do clip-path — atrás da máscara */
+.imageColumn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='84,0 96,0 30.15,100 29.85,100' fill='%230e9899'/%3E%3C/svg%3E");
+}
+
+/* Canvas da imagem — máscara H+V espelhada de Diferenciais (ponta para baixo) */
+/* Diferenciais original: polygon(70% 0, 100% 20%, 100% 100%, 10% 100%) */
+/* Espelho H: polygon(30% 0, 0 20%, 0 100%, 90% 100%) */
+/* Espelho H+V (ponta para baixo): polygon(0 0, 90% 0, 30% 100%, 0 80%) */
+/* clip-path anterior (comentado): polygon(0 0, 30% 0, 90% 100%, 0 100%) */
 .imageCanvas {
   position: absolute;
   inset: 0;
+  z-index: 1;
   overflow: hidden;
-  clip-path: polygon(0 0, 30% 0, 90% 100%, 0 100%);
+  clip-path: polygon(0 0, 90% 0, 30% 100%, 0 80%);
 }
 
 .image {
@@ -77,6 +90,11 @@
   margin: 0 0 2rem 0;
 }
 
+.highlight {
+  color: var(--primary-color-light);
+  font-weight: 600;
+}
+
 .paragraph:last-child {
   margin-bottom: 0;
 }
@@ -97,6 +115,10 @@
     width: 100%;
     height: clamp(280px, 55vw, 420px);
     overflow: hidden;
+  }
+
+  .imageColumn::before {
+    display: none;
   }
 
   .imageCanvas {

@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${dmSans.className} ${playfairDisplay.variable}`}>
-      <body>
+      <body suppressHydrationWarning>
         <LanguageProvider>
           <Header />
           <main>

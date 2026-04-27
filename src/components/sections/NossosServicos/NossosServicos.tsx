@@ -12,6 +12,30 @@ export default function NossosServicos() {
   const translations = language === 'pt' ? pt : en;
   const t = translations.Home.nossosServicos;
 
+  const highlightedPhrases =
+    language === 'pt'
+      ? ['Gestão de Portfólios onshore e offshore', 'Gerimos o patrimônio de nossos clientes']
+      : ['onshore and offshore portfolios', "We manage our clients' wealth"];
+
+  const renderParagraph = (paragraph: string) => {
+    const phrase = highlightedPhrases.find((candidate) => paragraph.includes(candidate));
+
+    if (!phrase) {
+      return paragraph;
+    }
+
+    const [before, ...rest] = paragraph.split(phrase);
+    const after = rest.join(phrase);
+
+    return (
+      <>
+        {before}
+        <span className={styles.highlight}>{phrase}</span>
+        {after}
+      </>
+    );
+  };
+
   return (
     <section className={styles.section}>
       <div className={styles.splitLayout}>
@@ -35,7 +59,9 @@ export default function NossosServicos() {
           <div className={styles.content}>
             <span className={styles.sectionLabel}>{t.label}</span>
             {t.paragraphs.map((paragraph, index) => (
-              <p key={index} className={styles.paragraph}>{paragraph}</p>
+              <p key={index} className={styles.paragraph}>
+                {renderParagraph(paragraph)}
+              </p>
             ))}
           </div>
         </div>
