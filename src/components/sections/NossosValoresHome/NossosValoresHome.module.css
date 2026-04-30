@@ -1,0 +1,165 @@
+.section {
+  padding: 6rem 0;
+    }
+    
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: minmax(240px, 36%) 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.header {
+  position: sticky;
+  top: calc(var(--header-height) + 2rem);
+}
+
+.sectionLabel {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--secondary-color);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  margin: 0;
+  color: var(--paragraph-color);
+  font-size: clamp(1.4rem, 3vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.35;
+}
+
+.animatedPhrase {
+  display: inline;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 500;
+}
+
+.cardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.valueCard {
+  display: grid;
+  grid-template-columns: minmax(170px, 38%) 1fr;
+  min-height: clamp(170px, 20vw, 240px);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.titlePanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.2rem;
+}
+
+.titleToneLight {
+  background: var(--background-secondary-gray-3);
+}
+
+.titleToneMid {
+  background: var(--background-secondary-gray-2);
+}
+
+.titleToneDark {
+  background: var(--background-secondary-gray-1);
+}
+
+.valueTitle {
+  margin: 0;
+  color: var(--text-on-dark);
+  font-size: clamp(1rem, 1.4vw, 1.35rem);
+  line-height: 1.2;
+}
+
+.imagePanel {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.valueImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.imageTint {
+  position: absolute;
+  inset: 0;
+  background: var(--primary-color);
+  mix-blend-mode: multiply;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.descriptionOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(6, 65, 65, 0.82);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.valueCard:hover .descriptionOverlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.valueDescription {
+  margin: 0;
+  color: var(--text-on-dark);
+  text-align: center;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 4rem 0 6rem;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .header {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .rightColumn {
+    padding: 1rem;
+  }
+
+  .valueCard {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .titlePanel {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .imagePanel {
+    min-height: 220px;
+  }
+}

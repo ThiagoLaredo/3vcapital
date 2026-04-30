@@ -100,7 +100,7 @@ export default function HeroSection() {
       <div className={`${styles.contentContainer} ${showContent ? styles.show : ''}`}>
         <div className={styles.heroContent}>
           <h1 className={styles.title}>{hero.title}</h1>
-          <p className={styles.paragraph}>{hero.paragraph}</p>
+          {/* <p className={styles.paragraph}>{hero.paragraph}</p> */}
         </div>
       </div>
 

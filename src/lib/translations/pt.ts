@@ -2,6 +2,8 @@ export const pt = {
   Navigation: {
     home: "Home",
     whatWeDo: "O que fazemos",
+    ourServices: "Nossos serviços",
+    ourDifferentiators: "Nossos diferenciais",
     aboutUs: "Quem somos",
     team: "Equipe",
     ourValues: "Nossos valores",
@@ -13,7 +15,7 @@ export const pt = {
   },
   Home: {
     hero: {
-      title: "Somos uma gestora de patrimônio independente",
+      title: "Onde a experiência transforma em Performance.",
       paragraph: "Realizamos a gestão do patrimônio para famílias, indivíduos e empresas, com base em seu momento de vida, suas metas e objetivos."
     },
     transactions: {

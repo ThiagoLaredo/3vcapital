@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../../../contexts/LanguageContext';
@@ -17,18 +17,26 @@ if (typeof window !== 'undefined') {
 export default function Experience() {
   const { language } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
+  const mainStatementRef = useRef<HTMLHeadingElement>(null);
   const decorativeCurveRef = useRef<HTMLDivElement>(null);
+  const ctaButtonRef = useRef<HTMLAnchorElement>(null);
   const translations = language === 'pt' ? pt : en;
-  const animationKey = language === 'pt' ? 0 : 1;
+  const [animationKey, setAnimationKey] = useState(0);
 
   // Hook para resetar ScrollTrigger ao navegar e ao mudar de idioma
   useScrollTriggerReset(language);
 
   useEffect(() => {
-    const section = sectionRef.current;
-    const decorativeCurve = decorativeCurveRef.current;
+    setAnimationKey((k) => k + 1);
+  }, [language]);
 
-    if (!section || !decorativeCurve) return;
+  useEffect(() => {
+    const section = sectionRef.current;
+    const mainStatement = mainStatementRef.current;
+    const decorativeCurve = decorativeCurveRef.current;
+    const ctaButton = ctaButtonRef.current;
+
+    if (!section || !mainStatement || !decorativeCurve || !ctaButton) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const paths = decorativeCurve.querySelectorAll('path');
@@ -46,20 +54,21 @@ export default function Experience() {
 
       const timeline = gsap.timeline({
         scrollTrigger: {
-          trigger: section,
-          start: 'top 72%',
-          toggleActions: 'play none none reverse',
+          trigger: mainStatement,
+          start: 'top 70%',
+          toggleActions: 'play none play reverse',
         },
       });
 
       timeline
+        .to({}, { duration: 1.35 })
         .fromTo(
           decorativeCurve,
           { y: 16, opacity: 0 },
           {
             y: 0,
             opacity: 0.9,
-            duration: 0.8,
+            duration: 0.72,
             ease: 'power2.out',
           }
         )
@@ -68,11 +77,23 @@ export default function Experience() {
           {
             strokeDashoffset: 0,
             opacity: 1,
-            duration: 1.15,
-            stagger: 0.2,
+            duration: 0.85,
+            stagger: 0.16,
             ease: 'power2.out',
           },
-          '-=0.45'
+          '-=0.35'
+        )
+        .fromTo(
+          ctaButton,
+          { y: 14, opacity: 0, scale: 0.98 },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.48,
+            ease: 'power2.out',
+          },
+          '+=0.04'
         );
     }, section);
 
@@ -82,8 +103,8 @@ export default function Experience() {
   }, [animationKey]);
 
   const animatedPhrases = {
-    pt: ['gestora de patrimônio independente,', 'decisões patrimoniais', 'visão de longo prazo'],
-    en: ['independent asset management firm,', 'asset decisions', 'long-term vision'],
+    pt: ['gestora de patrimônio independente,', 'decisões patrimoniais com assertividade,', 'método,', 'visão de longo prazo.'],
+    en: ['independent asset management firm,', 'asset decisions with assertiveness,', 'method,', 'long-term vision.' ],
   };
 
   const renderTextWithHighlights = (text: string) => {
@@ -96,12 +117,14 @@ export default function Experience() {
         if (idx > lastIndex) result.push(text.slice(lastIndex, idx));
         result.push(
           <AnimatedPhrase
-            key={`phrase-${phraseIndex}`}
+            key={`${animationKey}-phrase-${phraseIndex}`}
             phrase={phrase}
-            triggerRef={sectionRef}
+            triggerRef={mainStatementRef}
             className={styles.animatedText}
             triggerStart="top 70%"
-            finalColor="var(--primary-color-dark)"
+            toggleActions="play none play reverse"
+            finalColor="var(--primary-color)"
+            baseColor="#dddddd"
             phraseStagger={phraseIndex * 0.4}
             animationKey={animationKey}
           />
@@ -114,7 +137,7 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" ref={sectionRef} className={styles.experience} key={animationKey}>
+    <section id="experience" ref={sectionRef} className={styles.experience}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div ref={decorativeCurveRef} className={styles.decorativeCurve} aria-hidden="true">
@@ -131,10 +154,10 @@ export default function Experience() {
           </div>
           <span className={styles.title}>{translations.Home.experience.title}</span>
           <div className={styles.text}>
-            <h2 className={styles.mainStatement}>
+            <h2 ref={mainStatementRef} className={styles.mainStatement}>
               {renderTextWithHighlights(translations.Home.experience.paragraphs[0])}
             </h2>
-            <Link href="/quem-somos" className={styles.ctaButton}>
+            <Link ref={ctaButtonRef} href="/quem-somos" className={styles.ctaButton}>
               {translations.Home.experience?.cta ?? (language === 'pt' ? 'Saiba mais' : 'Learn more')}
             </Link>
             {/* <p className={styles.additionalText}>

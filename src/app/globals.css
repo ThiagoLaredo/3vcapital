@@ -14,6 +14,9 @@
   --background-muted: #edf2f1;
   --background-solutions: #103633;
   --background-primary-dark: #064141;
+  --background-secondary-gray-1: #343434;
+  --background-secondary-gray-2: #686867;
+  --background-secondary-gray-3: #989898;
   --surface-base: #e8efee;
   --surface-elevated: #f1f5f4;
   --surface-strong: #d8e2e1;
@@ -40,6 +43,11 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 24px);
 }
 
 body {

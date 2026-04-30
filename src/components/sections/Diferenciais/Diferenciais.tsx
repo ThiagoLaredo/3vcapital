@@ -4,6 +4,7 @@ import { useLanguage } from '../../../contexts/LanguageContext';
 import { pt, en } from '../../../lib/translations';
 import { SOLUTION_STEP_IMAGES } from '../../../lib/solutionImages';
 import { useEffect, useRef, useState } from 'react';
+import { useFadeIn } from '../../../hooks/useFadeIn';
 import Image from 'next/image';
 import styles from './Diferenciais.module.css';
 
@@ -27,6 +28,7 @@ export default function Solutions() {
 
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLElement>(null);
+  const labelRef = useFadeIn<HTMLSpanElement>({ y: 16, duration: 0.7, delay: 0.1 });
   const stepsRef = useRef<(HTMLDivElement | null)[]>([]);
   const stepsColumnRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<HTMLDivElement>(null);
@@ -48,7 +50,8 @@ export default function Solutions() {
       const wrapperRect = animation.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       const isMobile = typeof window !== 'undefined' && window.innerWidth <= 1024;
-      const entryOffset = isMobile ? 140 : 0;
+      const desktopEntryOffset = 100;
+      const entryOffset = isMobile ? 140 : desktopEntryOffset;
 
       setIsMobileLayout(isMobile);
 
@@ -56,13 +59,13 @@ export default function Solutions() {
         ? Math.max(Math.min(columnRect.width || 500, 500), 280)
         : Math.max(
             Math.min(
-              columnRect.width || window.innerWidth * 0.5,
-              window.innerWidth * 0.5,
-              760
+              columnRect.width || window.innerWidth * 0.35,
+              window.innerWidth * 0.35,
+              600
             ),
-            420
+            320
           );
-      const carouselHeight = isMobile ? carouselWidth / SOLUTION_MEDIA_RATIO : windowHeight;
+      const carouselHeight = carouselWidth / SOLUTION_MEDIA_RATIO;
       const top = isMobile ? 100 : 0;
 
       // Section considered started - mobile uses wrapper position, desktop uses steps position
@@ -89,7 +92,8 @@ export default function Solutions() {
       setProgress(scrollProgress);
 
       // Solta apenas quando a própria section estiver chegando ao fim.
-      const releaseOffset = isMobile ? 190 : 0;
+      const desktopReleaseOffset = -50;
+      const releaseOffset = isMobile ? 190 : desktopReleaseOffset;
       const shouldRelease = sectionRect.bottom <= windowHeight - releaseOffset;
 
       setIsSticky(sectionAtTop && !shouldRelease);
@@ -129,10 +133,17 @@ export default function Solutions() {
         : styles.motionVisible;
 
   return (
-    <section ref={sectionRef} className={styles.solutions}>
+    <section id="nossos-diferenciais" ref={sectionRef} className={styles.solutions}>
+      <svg className={styles.maskDefs} aria-hidden="true" focusable="false">
+        <defs>
+          <clipPath id="diferenciaisMask" clipPathUnits="objectBoundingBox">
+            <path d="M0.7,0 H1 V1 H0.1 C-0.1,0.7 0.35,0.15 0.7,0 Z" />
+          </clipPath>
+        </defs>
+      </svg>
       <div className={styles.container}>
         <header ref={headerRef} className={styles.header}>
-          <span className={styles.sectionLabel}>
+          <span ref={labelRef} className={styles.sectionLabel}>
             {language === 'pt' ? 'Nossos Diferenciais' : 'Our Differentiators'}
           </span>
           {/* <h2 className={styles.sectionTitle}>
@@ -159,7 +170,7 @@ export default function Solutions() {
                         alt={solutions[index]?.title || ''}
                         fill
                         sizes={SOLUTION_IMAGE_SIZES}
-                        quality={90}
+                        quality={100}
                         className={styles.stepImage}
                       />
                     </div>
@@ -232,7 +243,7 @@ export default function Solutions() {
                 style={{
                   width: fixedPosition.width,
                   height: fixedPosition.height,
-                  ...(stickyBottom ? {} : isSticky ? { top: fixedPosition.top } : {}),
+                  ...(stickyBottom ? {} : isSticky ? { bottom: 0 } : {}),
                 }}
               >
                 <div className={`${styles.animationMotion} ${galleryMotionClass}`}>
@@ -248,7 +259,7 @@ export default function Solutions() {
                             alt={solutions[index]?.title || ''}
                             fill
                             sizes={SOLUTION_IMAGE_SIZES}
-                            quality={90}
+                            quality={100}
                             className={styles.stepImage}
                           />
                         </div>

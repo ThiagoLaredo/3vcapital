@@ -83,6 +83,9 @@ const Header = () => {
 
   // Função para verificar se o path atual corresponde ao link
   const isActive = (href: string) => {
+    if (href.includes('#')) {
+      return false;
+    }
     if (href === '/') {
       return pathname === '/';
     }
@@ -90,7 +93,8 @@ const Header = () => {
   };
 
   const navItems = [
-    { href: '/o-que-fazemos', label: translations.Navigation.whatWeDo },
+    { href: '/#nossos-servicos', label: translations.Navigation.ourServices },
+    { href: '/#nossos-diferenciais', label: translations.Navigation.ourDifferentiators },
     { href: '/quem-somos', label: translations.Navigation.aboutUs },
     { href: '/equipe', label: translations.Navigation.team },
     { href: '/nossos-valores', label: translations.Navigation.ourValues },

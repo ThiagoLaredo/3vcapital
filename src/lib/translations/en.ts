@@ -2,6 +2,8 @@ export const en = {
   Navigation: {
     home: "Home",
     whatWeDo: "What we do",
+    ourServices: "Our services",
+    ourDifferentiators: "Our differentiators",
     aboutUs: "Who we are",
     team: "Team",
     ourValues: "Our values",
@@ -13,7 +15,7 @@ export const en = {
   },
   Home: {
     hero: {
-      title: "We are an independent asset management firm",
+      title: "Where experience transforms into Performance.",
       paragraph: "We manage assets for families, individuals, and companies, based on their life stage, goals, and objectives."
     },
     transactions: {

@@ -36,12 +36,15 @@ export default function NossosValoresPage() {
                       src={`/images/valores/${value.image}`}
                       alt={value.title}
                     />
+                    <div className={styles.valueImageTint} />
                   </div>
                 )}
-                <div className={styles.valueTitleContainer}>
-                  <h3 className={styles.valueTitle}>{value.title}</h3>
+                <div className={styles.valueTextContent}>
+                  <div className={styles.valueTitleContainer}>
+                    <h3 className={styles.valueTitle}>{value.title}</h3>
+                  </div>
+                  <p className={styles.valueDescription}>{value.description}</p>
                 </div>
-                <p className={styles.valueDescription}>{value.description}</p>
               </div>
             ))}
           </div>

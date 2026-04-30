@@ -19,7 +19,7 @@
 
 .decorativeCurve {
   position: absolute;
-  top: 1.2rem;
+  top: -1.4rem;
   right: -20rem;
   width: clamp(260px, 34vw, 420px);
   height: clamp(150px, 18vw, 220px);
@@ -43,12 +43,12 @@
 }
 
 .decorativeCurvePrimary {
-  stroke: color-mix(in srgb, var(--secondary-color) 78%, white 22%);
+  stroke: color-mix(in srgb, var(--secondary-color) 48%, white 22%);
   stroke-width: 2.5;
 }
 
 .decorativeCurveSecondary {
-  stroke: color-mix(in srgb, var(--primary-color) 18%, transparent 82%);
+  stroke: color-mix(in srgb, var(--primary-color) 38%, transparent 82%);
   stroke-width: 1.5;
 }
 
@@ -70,16 +70,18 @@
   line-height: 1.3;
   font-weight: 300; /* Fonte mais fina */
   margin-bottom: 1.5rem;
-  color: var(--title-color);
+  color: var(--paragraph-color);
   position: relative;
   z-index: 1;
 }
 
 /* Estilo para o texto que será animado letra por letra */
 .animatedText {
-  font-weight: 600; /* Apenas o texto animado tem espessura grossa */
-  display: inline-block;
-  color: var(--primary-color-dark);
+  display: inline;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 500;
+  color: var(--primary-color);
 }
 
 /* Estilo para o texto adicional */

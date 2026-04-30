@@ -1,8 +1,15 @@
 .solutions {
-  padding: 4rem 0 8rem;
-  background: var(--background-primary-dark);
+  padding: 4rem 0 12rem;
+   background: var(--background-primary-dark);
   position: relative;
   overflow-x: hidden;
+}
+
+.maskDefs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
 }
 
 :root {
@@ -188,8 +195,8 @@
 
 /* Right Column - Spacer mantém o layout, carrossel fica position:fixed por cima */
 .stickyColumn {
-  flex: 0 0 50vw;
-  max-width: 50vw;
+  flex: 0 0 35vw;
+  max-width: 35vw;
   position: relative;
   min-height: 100vh;
 }
@@ -205,8 +212,10 @@
 /* Carrossel: SEMPRE position:fixed, right:0 */
 .animationWrapper {
   position: fixed;
-  right: 0;
-  width: 40vw;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35vw;
   height: 100vh;
   max-width: none;
   transition: none;
@@ -264,7 +273,7 @@
 }
 
 .animationContainer {
-  border-radius: 0;
+  border-radius: 24px 0 0 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -274,26 +283,31 @@
   overflow: hidden;
 }
 
+/* .animationContainer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='69.85,0 70.15,0 16,100 4,100' fill='%230e9899'/%3E%3C/svg%3E");
+} */
+
 /* Quando fixo (não bottom): bordas arredondadas apenas nos cantos esquerdos */
 .animationWrapper:not(.bottom) .animationContainer {
-  border-radius: 0;
+  border-radius: 24px;
 }
 
 .animationCanvas {
   position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  /* Retângulo irregular em diagonal: topo-esq(70%,0) → topo-dir(100%,30%) → fundo-dir(100%,100%) → fundo-esq(60%,100%) */
-  clip-path: polygon(
-    70% 0,
-    100% 20%,
-    100% 100%,
-    10% 100%
-  );
+  /* Máscara desativada para testar o slide retangular padrão. */
+  clip-path: none;
 }
 
 /* Animação com imagens */
@@ -394,6 +408,10 @@
   .solutions {
     padding: 6rem 0 4rem;
     overflow: visible;
+  }
+
+  .animationContainer::before {
+    display: none;
   }
 
   .animationCanvas {

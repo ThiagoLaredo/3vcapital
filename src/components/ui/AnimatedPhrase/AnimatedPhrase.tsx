@@ -13,6 +13,7 @@ interface AnimatedPhraseProps {
   triggerRef: RefObject<HTMLElement | null>;
   className?: string;
   triggerStart?: string;
+  toggleActions?: ScrollTrigger.ToggleActions;
   finalColor?: string;
   baseColor?: string;
   letterStagger?: number;
@@ -25,6 +26,7 @@ export default function AnimatedPhrase({
   triggerRef,
   className = '',
   triggerStart = 'top 70%',
+  toggleActions = 'play none none none',
   finalColor = '#0e9899',
   baseColor = '#dddddd',
   letterStagger = 0.03,
@@ -65,22 +67,14 @@ export default function AnimatedPhrase({
             }
             element.appendChild(wordSpan);
           });
-          const rect = trigger.getBoundingClientRect();
-          const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-          let scrollTriggerConfig: ScrollTrigger.Vars | undefined;
-          if (!isInView) {
-            scrollTriggerConfig = {
+          const masterTimeline = gsap.timeline({
+            scrollTrigger: {
               trigger,
               start: triggerStart,
-              toggleActions: 'play none none none',
+              toggleActions,
               invalidateOnRefresh: true,
-            };
-          }
-          const masterTimeline = gsap.timeline(
-            isInView
-              ? {}
-              : scrollTriggerConfig ? { scrollTrigger: scrollTriggerConfig } : {}
-          );
+            },
+          });
           letters.forEach((letter, letterIndex) => {
             masterTimeline.to(
               letter,
@@ -88,11 +82,7 @@ export default function AnimatedPhrase({
               phraseStagger + letterIndex * letterStagger
             );
           });
-          if (isInView) {
-            masterTimeline.play(0);
-          } else {
-            ScrollTrigger.refresh();
-          }
+          ScrollTrigger.refresh();
         }, trigger);
       } catch {
         // Ignora SecurityError com iframe cross-origin
@@ -104,7 +94,7 @@ export default function AnimatedPhrase({
         ctx.revert();
       }
     };
-  }, [animationKey, phrase, triggerRef, triggerStart, finalColor, baseColor, letterStagger, phraseStagger]);
+  }, [animationKey, phrase, triggerRef, triggerStart, toggleActions, finalColor, baseColor, letterStagger, phraseStagger]);
 
   return (
     <span ref={spanRef} className={className} style={{ color: baseColor }}>

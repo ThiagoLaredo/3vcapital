@@ -16,25 +16,43 @@
 .valuesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  border-radius: 12px;
+  gap: 1.2rem;
 }
 
 .valueCard {
-  /* background: var(--surface-elevated); */
+  background: var(--background-secondary-gray-3);
+  /* padding: 1.25rem; */
+  /* border: 1px solid rgba(255, 255, 255, 0.14); */
   border-radius: 12px;
-  /* padding: 1.75rem; */
-  /* border: 1px solid rgba(14, 152, 153, 0.1); */
+  overflow: hidden;
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.valueCard:nth-child(3n + 1) {
+  background: var(--background-secondary-gray-3);
+}
+
+.valueCard:nth-child(3n + 2) {
+  background: var(--background-secondary-gray-2);
+}
+
+.valueCard:nth-child(3n) {
+  background: var(--background-secondary-gray-1);
 }
 
 .valueImageWrapper {
   width: 100%;
   overflow: hidden;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   background: var(--primary-color);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   position: relative;
   padding-top: 56%; /* 16:9 aspect ratio */
+}
+
+.valueTextContent {
+  padding: 1.25rem;
 }
 
 .valueImageWrapper img {
@@ -45,18 +63,27 @@
   height: 100%;
   object-fit: cover;
   filter: none;
-  mix-blend-mode: multiply;
+  mix-blend-mode: normal;
   transition: filter 0.3s ease;
 }
 
-.valueCard:hover .valueImageWrapper img {
+.valueImageTint {
+  position: absolute;
+  inset: 0;
+  background: var(--primary-color);
+  mix-blend-mode: multiply;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* .valueCard:hover .valueImageWrapper img {
   filter: grayscale(100%);
 }
 
 .valueCard:hover {
   border-color: rgba(14, 152, 153, 0.2);
   box-shadow: 0 8px 24px rgba(14, 152, 153, 0.08);
-}
+} */
 
 .valueTitleContainer {
   display: flex;
@@ -69,14 +96,14 @@
 .valueTitle {
   font-size: 1.6rem;
   font-weight: 500;
-  color: var(--primary-color);
+  color: var(--text-on-dark);
   margin: 0;
 }
 
 .valueDescription {
   font-size: 1.02rem;
   line-height: 1.6;
-  color: var(--paragraph-color);
+  color: var(--text-on-dark);
   margin: 0;
 }
 

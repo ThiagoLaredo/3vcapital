@@ -1,5 +1,5 @@
 .footer {
-  background: var(--background-primary-dark);
+  background: var(--primary-color);
   color: var(--text-on-dark);
   padding: 4rem 0 2.5rem;
   width: 100%;
@@ -46,7 +46,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--primary-color);
+  color: var(--white);
   margin: 0 0 1rem 0;
 }
 
