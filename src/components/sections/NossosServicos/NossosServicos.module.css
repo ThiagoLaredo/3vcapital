@@ -1,5 +1,5 @@
 .section {
-  background: var(--background-primary-dark);
+  background: var(--primary-color);
   position: relative;
   overflow: hidden;
   min-height: 80vh;
@@ -103,7 +103,7 @@
 }
 
 .highlight {
-  color: var(--primary-color-light);
+  color: var(--white);
   font-weight: 600;
 }
 

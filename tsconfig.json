@@ -19,6 +19,7 @@
       }
     ],
     "baseUrl": ".",  // Adicione esta linha
+    "ignoreDeprecations": "6.0",
     "paths": {
       "@/*": ["./src/*"]
     }

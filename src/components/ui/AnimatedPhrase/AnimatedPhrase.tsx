@@ -13,7 +13,7 @@ interface AnimatedPhraseProps {
   triggerRef: RefObject<HTMLElement | null>;
   className?: string;
   triggerStart?: string;
-  toggleActions?: ScrollTrigger.ToggleActions;
+  toggleActions?: string;
   finalColor?: string;
   baseColor?: string;
   letterStagger?: number;

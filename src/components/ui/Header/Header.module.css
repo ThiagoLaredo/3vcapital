@@ -205,7 +205,7 @@
   inset: 0;
   background: var(--primary-color) ;
   color: var(--white);
-  --menu-link-color: color-mix(in srgb, var(--white) 84%, var(--primary-color-soft) 16%);
+  --menu-link-color: rgba(255, 255, 255, 0.84);
   --menu-link-hover: var(--white);
   --menu-link-border: color-mix(in srgb, var(--white) 14%, transparent);
   padding: clamp(1.2rem, 2.4vw, 2rem) clamp(1.25rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.25rem);
@@ -263,7 +263,7 @@
   text-decoration: none;
   padding: 0.72rem 0;
   /* border-bottom: 1px solid var(--menu-link-border); */
-  transition: transform 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
   font-size: clamp(1.02rem, 1.4vw, 1.22rem);
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -344,6 +344,55 @@
 
 .mobileNavLink.active {
   color: var(--white);
+}
+
+/* Quando há link ativo, os outros links ficam com opacidade reduzida */
+.mobileMenu.active:not(.closing) .mobileNav:has(.mobileNavLink.active) .mobileNavLink:not(.active) {
+  animation: slideInRightDimmed 0.52s cubic-bezier(0.22, 1, 0.36, 1) var(--link-delay, 0.4s) both !important;
+}
+
+/* Delays por posição para links não ativos */
+.mobileMenu.active:not(.closing) .mobileNav:has(.mobileNavLink.active) .mobileNavLink:not(.active):nth-child(1) {
+  animation-delay: 0.4s !important;
+}
+.mobileMenu.active:not(.closing) .mobileNav:has(.mobileNavLink.active) .mobileNavLink:not(.active):nth-child(2) {
+  animation-delay: 0.47s !important;
+}
+.mobileMenu.active:not(.closing) .mobileNav:has(.mobileNavLink.active) .mobileNavLink:not(.active):nth-child(3) {
+  animation-delay: 0.54s !important;
+}
+.mobileMenu.active:not(.closing) .mobileNav:has(.mobileNavLink.active) .mobileNavLink:not(.active):nth-child(4) {
+  animation-delay: 0.61s !important;
+}
+.mobileMenu.active:not(.closing) .mobileNav:has(.mobileNavLink.active) .mobileNavLink:not(.active):nth-child(5) {
+  animation-delay: 0.68s !important;
+}
+.mobileMenu.active:not(.closing) .mobileNav:has(.mobileNavLink.active) .mobileNavLink:not(.active):nth-child(6) {
+  animation-delay: 0.75s !important;
+}
+.mobileMenu.active:not(.closing) .mobileNav:has(.mobileNavLink.active) .mobileNavLink:not(.active):nth-child(7) {
+  animation-delay: 0.82s !important;
+}
+.mobileMenu.active:not(.closing) .mobileNav:has(.mobileNavLink.active) .mobileNavLink:not(.active):nth-child(8) {
+  animation-delay: 0.89s !important;
+}
+.mobileMenu.active:not(.closing) .mobileNav:has(.mobileNavLink.active) .mobileNavLink:not(.active):nth-child(9) {
+  animation-delay: 0.96s !important;
+}
+
+@keyframes slideInRightDimmed {
+  from {
+    opacity: 0;
+    transform: translateX(-32px) translateY(2px);
+  }
+  to {
+    opacity: 0.7;
+    transform: translateX(0);
+  }
+}
+
+.mobileMenu.active:not(.closing) .mobileNav:has(.mobileNavLink.active) .mobileNavLink:not(.active):hover {
+  opacity: 1 !important;
 }
 
 .navText {
@@ -561,19 +610,7 @@
   }
 
   .mobileNavLink::before {
-    content: '';
-    position: absolute;
-    left: -0.45rem;
-    right: -0.45rem;
-    top: 50%;
-    height: 72%;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.14);
-    opacity: 0;
-    transform: translateY(-50%) scaleX(0.92);
-    transition: opacity 0.28s ease, transform 0.28s ease;
-    z-index: 0;
-    pointer-events: none;
+    content: none;
   }
 
   .mobileNavLink:hover,
@@ -583,16 +620,7 @@
     text-shadow: 0 0 18px rgba(255, 255, 255, 0.34);
   }
 
-  .mobileNavLink:hover::before,
-  .mobileNavLink:focus-visible::before {
-    opacity: 1;
-    transform: translateY(-50%) scaleX(1);
-  }
 
-  .mobileNavLink.active::before {
-    opacity: 0.82;
-    transform: translateY(-50%) scaleX(1);
-  }
 
   .mobileMenuInner {
     align-items: center;

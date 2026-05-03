@@ -16,6 +16,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('');
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const { language, setLanguage } = useLanguage();
@@ -53,6 +54,38 @@ const Header = () => {
   // Fechar menu ao mudar de rota
   useEffect(() => {
     closeMenu();
+  }, [pathname]);
+
+  // Detectar seção âncora visível na home
+  useEffect(() => {
+    if (pathname !== '/') {
+      setActiveSection('');
+      return;
+    }
+
+    const sectionIds = ['nossos-servicos', 'nossos-diferenciais', 'nossos-valores'];
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+          } else {
+            setActiveSection((prev) => (prev === id ? '' : prev));
+          }
+        },
+        { threshold: 0.3 }
+      );
+
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
   }, [pathname]);
 
   useEffect(() => {
@@ -97,7 +130,7 @@ const Header = () => {
     { href: '/#nossos-diferenciais', label: translations.Navigation.ourDifferentiators },
     { href: '/quem-somos', label: translations.Navigation.aboutUs },
     { href: '/equipe', label: translations.Navigation.team },
-    { href: '/nossos-valores', label: translations.Navigation.ourValues },
+    { href: '/#nossos-valores', label: translations.Navigation.ourValues },
     { href: '/compliance', label: translations.Navigation.compliance },
     { href: '/cartas-mensais', label: translations.Navigation.monthlyLetters },
     { href: '/noticias', label: translations.Navigation.media },
@@ -111,6 +144,10 @@ const Header = () => {
   const isHome = pathname === '/';
 
   const isNavItemActive = (href: string) => {
+    if (href.includes('#')) {
+      const sectionId = href.split('#')[1];
+      return activeSection === sectionId;
+    }
     return isActive(href);
   };
 

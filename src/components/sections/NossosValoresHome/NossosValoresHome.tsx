@@ -45,7 +45,7 @@ export default function NossosValoresHome() {
   const t = TEXTS[language as keyof typeof TEXTS] ?? TEXTS.pt;
 
   return (
-    <section className={styles.section} ref={sectionRef}>
+    <section id="nossos-valores" className={styles.section} ref={sectionRef}>
       <div className={styles.container}>
         <header ref={headerRef as React.RefObject<HTMLElement>} className={styles.header}>
           <span className={styles.sectionLabel}>{t.label}</span>

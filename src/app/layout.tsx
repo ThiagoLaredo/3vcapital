@@ -3,6 +3,7 @@ import { DM_Sans, Playfair_Display } from 'next/font/google';
 import "./globals.css";
 import Header from "../components/ui/Header/Header";
 import Footer from "../components/ui/Footer/Footer";
+import ScrollToTop from "../components/ui/ScrollToTop/ScrollToTop";
 import { LanguageProvider } from "../contexts/LanguageContext";
 
 const dmSans = DM_Sans({
@@ -30,6 +31,7 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${dmSans.className} ${playfairDisplay.variable}`}>
       <body suppressHydrationWarning>
         <LanguageProvider>
+          <ScrollToTop />
           <Header />
           <main>
             {children}

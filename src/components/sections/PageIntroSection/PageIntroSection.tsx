@@ -44,7 +44,7 @@ export default function PageIntroSection({
                 className={styles.animatedPhrase}
                 triggerStart="top 25%"
                 animationKey={animationKey}
-                finalColor="var(--primary-color-dark)"
+                finalColor="var(--paragraph-color)"
               />
             ) : null}
             {textAfter}
