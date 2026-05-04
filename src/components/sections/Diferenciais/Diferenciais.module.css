@@ -34,7 +34,7 @@
 .sectionLabel {
   display: block;
   font-size: 0.85rem;
-  color: var(--primary-color-soft);
+  color: color-mix(in srgb, var(--white) 72%, var(--primary-color-soft) 28%);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -308,6 +308,7 @@
   overflow: hidden;
   /* Máscara desativada para testar o slide retangular padrão. */
   clip-path: none;
+  border-radius: 12px;
 }
 
 /* Animação com imagens */
@@ -557,7 +558,11 @@
 
 @media (max-width: 768px) {
   .solutions {
-    padding: 5rem 0 3rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .container {
+    padding: 0;
   }
 
   .header {
@@ -638,11 +643,11 @@
 
 @media (max-width: 480px) {
   .solutions {
-    padding: 4rem 0 3rem;
+    padding: 3rem 1.5rem;
   }
 
   .container {
-    padding: 0 1.5rem;
+    padding: 0;
   }
 
   .header {

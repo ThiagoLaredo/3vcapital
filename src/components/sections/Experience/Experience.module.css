@@ -143,11 +143,11 @@
 
 @media (max-width: 768px) {
   .experience {
-    padding: 3rem 0;
+    padding: 3rem 1.5rem;
   }
 
   .container {
-    padding: 0 1rem;
+    padding: 0;
   }
 
   .content {
@@ -179,9 +179,6 @@
 }
 
 @media (max-width: 480px) {
-  .mainStatement {
-    font-size: 1.5rem;
-  }
 
   .additionalText {
     font-size: 0.95rem;

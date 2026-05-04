@@ -69,7 +69,7 @@ export default function HeroSection() {
             muted
             playsInline
             onLoadedData={handleVideoLoaded}
-            onCanPlay={() => setIsVideoLoaded(true)}
+            onCanPlay={handleVideoLoaded}
             onError={handleVideoError}
             className={styles.video}
             preload="auto"

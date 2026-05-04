@@ -91,7 +91,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .paragraph {
@@ -148,8 +148,17 @@
 }
 
 @media (max-width: 768px) {
+  .textColumn {
+    padding: 3rem 1.5rem;
+  }
+
   .imageColumn {
     height: clamp(220px, 65vw, 340px);
+  }
+  
+  .sectionLabel {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
   }
 
   .paragraph {

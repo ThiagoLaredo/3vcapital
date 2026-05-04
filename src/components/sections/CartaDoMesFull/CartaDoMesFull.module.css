@@ -155,6 +155,15 @@
     width: 100%;
   }
 
+  .contentColumn {
+    padding: 3rem 1.5rem;
+  }
+
+  .sectionLabel {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
   .mediaColumn {
     min-height: 260px;
   }

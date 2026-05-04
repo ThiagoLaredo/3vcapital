@@ -145,6 +145,19 @@
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding: 3rem 1.5rem;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .sectionLabel {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
   .rightColumn {
     padding: 1rem;
   }
