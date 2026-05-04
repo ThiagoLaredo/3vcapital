@@ -30,9 +30,9 @@
 .sectionTitle {
   margin: 0;
   color: var(--paragraph-color);
-  font-size: clamp(1.4rem, 3vw, 2.5rem);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 300;
-  line-height: 1.35;
+  line-height: 1.45;
 }
 
 .animatedPhrase {

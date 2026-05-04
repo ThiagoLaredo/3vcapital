@@ -19,7 +19,6 @@ export default function Experience() {
   const sectionRef = useRef<HTMLElement>(null);
   const mainStatementRef = useRef<HTMLHeadingElement>(null);
   const decorativeCurveRef = useRef<HTMLDivElement>(null);
-  const ctaButtonRef = useRef<HTMLAnchorElement>(null);
   const translations = language === 'pt' ? pt : en;
   const [animationKey, setAnimationKey] = useState(0);
 
@@ -34,9 +33,8 @@ export default function Experience() {
     const section = sectionRef.current;
     const mainStatement = mainStatementRef.current;
     const decorativeCurve = decorativeCurveRef.current;
-    const ctaButton = ctaButtonRef.current;
 
-    if (!section || !mainStatement || !decorativeCurve || !ctaButton) return;
+    if (!section || !mainStatement || !decorativeCurve) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const paths = decorativeCurve.querySelectorAll('path');
@@ -82,18 +80,6 @@ export default function Experience() {
             ease: 'power2.out',
           },
           '-=0.35'
-        )
-        .fromTo(
-          ctaButton,
-          { y: 14, opacity: 0, scale: 0.98 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 0.48,
-            ease: 'power2.out',
-          },
-          '+=0.04'
         );
     }, section);
 
@@ -157,7 +143,7 @@ export default function Experience() {
             <h2 ref={mainStatementRef} className={styles.mainStatement}>
               {renderTextWithHighlights(translations.Home.experience.paragraphs[0])}
             </h2>
-            <Link ref={ctaButtonRef} href="/quem-somos" className={styles.ctaButton}>
+            <Link href="/quem-somos" className={styles.ctaButton}>
               {translations.Home.experience?.cta ?? (language === 'pt' ? 'Saiba mais' : 'Learn more')}
             </Link>
             {/* <p className={styles.additionalText}>

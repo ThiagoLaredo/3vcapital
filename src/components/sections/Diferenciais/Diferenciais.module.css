@@ -445,7 +445,10 @@
   /* Mobile: animation wrapper in normal flow (between header and steps) */
   .animationWrapper.mobileInFlow {
     position: sticky !important;
-    top: 60px;
+    top: 40px;
+    right: auto;
+    left: auto;
+    transform: none;
     width: 100% !important;
     max-width: min(500px, calc(100vw - 2rem)) !important;
     margin: 2rem auto;
@@ -500,9 +503,9 @@
 
   .animationWrapper:not(.mobileInFlow).sticking {
     position: fixed !important;
-    top: 50% !important;
+    top: 100px !important;
     left: 50% !important;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     right: auto !important;
   }
 
@@ -659,11 +662,11 @@
   }
 
   .stepTitle {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   .stepDescription {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
 
   .motionHidden,
