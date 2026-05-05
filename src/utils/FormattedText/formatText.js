@@ -16,6 +16,12 @@ export function formatText(text, options = {}) {
   
   let formatted = trimmedText;
   
+  // Converte URLs nuas em links clicáveis (antes de qualquer outro processamento HTML)
+  formatted = formatted.replace(
+    /(https?:\/\/[^\s<>"')\]]+)/g,
+    '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+  );
+
   // Aplica markdown se necessário
   if (type === 'markdown' || type === 'inline') {
     formatted = formatted

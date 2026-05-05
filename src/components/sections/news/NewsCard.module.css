@@ -43,24 +43,19 @@
   background-color: var(--primary-color);
 }
 
+.cardImageContainer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 96, 97, 0.04) 0%, rgba(8, 96, 97, 0.36) 100%);
+  pointer-events: none;
+}
+
 .image {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Preenche todo o espaço mantendo proporção */
-  transition: transform 0.6s ease;
-  filter: none;
-  mix-blend-mode: multiply;
-}
-
-.image:hover {
-  filter: grayscale(100%) sepia(100%) hue-rotate(70deg) saturate(900%) brightness(0.75);
-  mix-blend-mode: multiply;
-}
-
-.newsCard:hover .image {
-  transform: scale(1.05);
-  filter: grayscale(100%);
-  mix-blend-mode: multiply;
+  transition: none;
 }
 
 .imageFallback {

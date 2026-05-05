@@ -2,11 +2,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { formatText } from '@/utils/FormattedText/formatText';
 import { getNewsBySlug } from '@/lib/news-data';
 import styles from './page.module.css';
 import Image from 'next/image';
-import { Image as ImageIcon, Calendar, User } from 'lucide-react';
+import { Image as ImageIcon, Calendar, User, ArrowLeft } from 'lucide-react';
 
 interface NoticiaPageClientProps {
   slug: string;
@@ -114,6 +115,13 @@ export default function NoticiaPageClient({ slug }: NoticiaPageClientProps) {
               </div>
             </div>
           </article>
+
+          <div className={styles.backButtonWrapper}>
+            <Link href="/noticias" className={styles.backButton}>
+              <ArrowLeft size={18} />
+              Voltar para Notícias
+            </Link>
+          </div>
         </div>
       </section>
     </div>
