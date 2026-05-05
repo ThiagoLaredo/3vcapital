@@ -34,7 +34,7 @@
 .sectionLabel {
   display: block;
   font-size: 0.85rem;
-  color: color-mix(in srgb, var(--white) 72%, var(--primary-color-soft) 28%);
+  color: var(--primary-color-soft);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -212,7 +212,7 @@
 /* Carrossel: SEMPRE position:fixed, right:0 */
 .animationWrapper {
   position: fixed;
-  right: 40px;
+  right: 120px;
   top: 50%;
   transform: translateY(-50%);
   width: 35vw;

@@ -2,12 +2,17 @@
 
 import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../../../contexts/LanguageContext';
 import { pt, en } from '../../../lib/translations';
 import { useFadeIn } from '../../../hooks/useFadeIn';
-import { useFadeInStagger } from '../../../hooks/useFadeInStagger';
 import AnimatedPhrase from '../../ui/AnimatedPhrase/AnimatedPhrase';
 import styles from './NossosValoresHome.module.css';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const IMAGE_SIZES = '(max-width: 768px) 100vw, 46vw';
 
@@ -33,10 +38,38 @@ export default function NossosValoresHome() {
   const values = dict?.values || [];
 
   const sectionRef = useRef<HTMLElement>(null);
+  const cardsListRef = useRef<HTMLDivElement>(null);
   const [animationKey, setAnimationKey] = useState(0);
 
   const headerRef = useFadeIn<HTMLElement>({ delay: 0.2, y: 30 });
-  const cardsRef = useFadeInStagger({ stagger: 0.18, y: 50, duration: 0.85 });
+
+  useEffect(() => {
+    const container = cardsListRef.current;
+    if (!container) return;
+
+    const cards = container.querySelectorAll<HTMLElement>(`.${styles.valueCard}`);
+    const ctx = gsap.context(() => {
+      cards.forEach((card) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 88%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+    }, container);
+
+    return () => ctx.revert();
+  }, [animationKey]);
 
   useEffect(() => {
     setAnimationKey(k => k + 1);
@@ -63,7 +96,7 @@ export default function NossosValoresHome() {
           </h2>
         </header>
 
-        <div ref={cardsRef as React.RefObject<HTMLDivElement>} className={styles.cardsList}>
+        <div ref={cardsListRef} className={styles.cardsList}>
           {values.map((value, index) => (
             <article key={value.title} className={styles.valueCard}>
               <div

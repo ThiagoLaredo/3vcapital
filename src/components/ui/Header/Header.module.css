@@ -303,6 +303,10 @@
   animation: slideInRight 0.52s cubic-bezier(0.22, 1, 0.36, 1) 0.89s forwards;
 }
 
+.mobileMenu.active:not(.closing) .mobileNavLink:nth-child(9) {
+  animation: slideInRight 0.52s cubic-bezier(0.22, 1, 0.36, 1) 0.96s forwards;
+}
+
 /* Saida dos links em cascata reversa */
 .mobileMenu.closing .mobileNavLink:nth-child(1) {
   animation: slideOutLeft 0.3s cubic-bezier(0.55, 0.08, 0.68, 0.53) 0.28s forwards;
@@ -333,6 +337,10 @@
 }
 
 .mobileMenu.closing .mobileNavLink:nth-child(8) {
+  animation: slideOutLeft 0.3s cubic-bezier(0.55, 0.08, 0.68, 0.53) 0.04s forwards;
+}
+
+.mobileMenu.closing .mobileNavLink:nth-child(9) {
   animation: slideOutLeft 0.3s cubic-bezier(0.55, 0.08, 0.68, 0.53) 0s forwards;
 }
 
