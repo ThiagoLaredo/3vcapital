@@ -118,6 +118,7 @@ export default function CompliancePage() {
   const { language } = useLanguage();
   const translations = language === 'pt' ? pt : en;
   const dict = translations.CompliancePage || {};
+  const cyber = dict?.cybersecurity || {};
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPdfUrl, setSelectedPdfUrl] = useState('');
@@ -145,11 +146,41 @@ export default function CompliancePage() {
 
       <PageIntroSection
         title={dict?.introTitle || "Documentos Regulatórios"}
-        fullText={dict?.introSubtitle || "Acesse nossos documentos de compliance, políticas internas e manuais."}
+        fullText=""
       />
+
+      <section className={styles.cyberSection} aria-labelledby="cybersecurity-title">
+        <div className={styles.container}>
+          <div className={styles.cyberCard}>
+            <span className={styles.cyberLabel}>{cyber?.label || 'Cybersecurity'}</span>
+            <h2 id="cybersecurity-title" className={styles.cyberTitle}>
+              {cyber?.title || 'A seguranca da informacao como extensao da governanca e do compliance'}
+            </h2>
+            <p className={styles.cyberLead}>
+              {cyber?.lead || 'A seguranca da informacao pode aparecer no site como extensao natural da governanca e do compliance, em linguagem clara para o cliente.'}
+            </p>
+
+            <blockquote className={styles.cyberQuote}>
+              "{cyber?.quote || 'Na 3V Capital, a protecao das informacoes de nossos clientes e parte essencial da nossa estrutura de governanca e compliance.'}"
+            </blockquote>
+
+            <div className={styles.cyberTextBlock}>
+              <p>
+                {cyber?.paragraphOne || 'Adotamos praticas e controles voltados a seguranca da informacao e a continuidade operacional, com o objetivo de mitigar riscos ciberneticos e reforcar a resiliencia dos nossos processos.'}
+              </p>
+              <p>
+                {cyber?.paragraphTwo || 'Entendemos que confianca tambem se constroi pela forma como protegemos dados, processos e relacionamentos.'}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className={styles.documentsSection}>
         <div className={styles.container}>
+          <p className={styles.documentsIntro}>
+            {dict?.introSubtitle || "Acesse nossos documentos de compliance, políticas internas e manuais."}
+          </p>
           <div ref={gridRef} className={styles.documentsGrid}>
             {documents.map((doc) => {
               const docName = getDocumentName(doc, language);

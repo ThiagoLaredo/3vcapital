@@ -39,6 +39,89 @@
   padding: 0 0 4rem 0;
 }
 
+.documentsIntro {
+  margin: 0 0 1.5rem;
+  color: var(--paragraph-color, #666);
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.cyberSection {
+  padding: 0 0 3.5rem;
+}
+
+.cyberCard {
+  position: relative;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(8, 96, 97, 0.08), rgba(8, 96, 97, 0.02));
+  border: 1px solid rgba(8, 96, 97, 0.22);
+  box-shadow: 0 16px 32px rgba(8, 96, 97, 0.08);
+  overflow: hidden;
+}
+
+.cyberCard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: var(--primary-color);
+}
+
+.cyberLabel {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(8, 96, 97, 0.12);
+  color: var(--primary-color);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cyberTitle {
+  margin: 0;
+  color: var(--title-color);
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.cyberLead {
+  margin: 1rem 0 0;
+  color: var(--paragraph-color);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.65;
+}
+
+.cyberQuote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.15rem;
+  border-left: 3px solid var(--secondary-color);
+  background: rgba(255, 255, 255, 0.56);
+  color: var(--title-color);
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  line-height: 1.6;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.cyberTextBlock {
+  display: grid;
+  gap: 1rem;
+}
+
+.cyberTextBlock p {
+  margin: 0;
+  color: var(--paragraph-color);
+  line-height: 1.75;
+  font-size: 1.02rem;
+}
+
 .documentsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -151,6 +234,29 @@
 
   .documentsGrid {
     grid-template-columns: 1fr;
+  }
+
+  .documentsIntro {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .cyberSection {
+    padding-bottom: 2.5rem;
+  }
+
+  .cyberCard {
+    border-radius: 14px;
+    padding: 1.25rem 1.1rem 1.35rem 1.2rem;
+  }
+
+  .cyberQuote {
+    margin: 1.1rem 0;
+    padding: 0.9rem;
+  }
+
+  .cyberTextBlock p {
+    font-size: 0.98rem;
   }
 
   .documentCard {

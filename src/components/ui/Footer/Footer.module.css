@@ -11,6 +11,147 @@
   padding: 0 2rem;
 }
 
+.newsletterCard {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(8, 86, 87, 0.92);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+}
+
+.newsletterHeader {
+  max-width: 720px;
+}
+
+.newsletterEyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.newsletterTitle {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.newsletterSubtitle {
+  margin: 0.6rem 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.newsletterForm {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+  align-items: end;
+}
+
+.hiddenField {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field span {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 600;
+}
+
+.field input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 10px;
+  height: 46px;
+  padding: 0 0.9rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.field input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.field input:focus {
+  border-color: rgba(255, 255, 255, 0.46);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.newsletterButton {
+  height: 46px;
+  border: 0;
+  border-radius: 10px;
+  padding: 0 1rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--white);
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.newsletterButton:hover {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--primary-color-deep);
+  transform: none;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+}
+
+.newsletterButton:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.newsletterStatus {
+  margin: -1.5rem 0 2rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.statusSuccess {
+  border: 1px solid rgba(113, 211, 157, 0.5);
+  background: rgba(113, 211, 157, 0.12);
+  color: #d8ffe9;
+}
+
+.statusError {
+  border: 1px solid rgba(255, 166, 166, 0.46);
+  background: rgba(255, 140, 140, 0.12);
+  color: #ffe6e6;
+}
+
 /* Linha principal: Logo | Contato | Mapa */
 .mainRow {
   display: grid;
@@ -121,9 +262,8 @@
 .selos {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2rem;
-  padding: 2rem 0;
 }
 
 .selo {
@@ -140,8 +280,12 @@
 
 /* Copyright */
 .bottom {
-  text-align: center;
   padding-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .copyright {
@@ -153,6 +297,10 @@
 
 /* Responsividade */
 @media (max-width: 1024px) {
+  .newsletterForm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .mainRow {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
@@ -174,6 +322,28 @@
 
   .container {
     padding: 0 1.5rem;
+  }
+
+  .newsletterCard {
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .newsletterTitle {
+    font-size: 1.25rem;
+  }
+
+  .newsletterSubtitle {
+    font-size: 0.92rem;
+  }
+
+  .newsletterStatus {
+    margin: -1rem 0 1.5rem;
+    font-size: 0.88rem;
+  }
+
+  .newsletterForm {
+    grid-template-columns: 1fr;
   }
 
   .mainRow {
@@ -203,8 +373,14 @@
   }
 
   .selos {
+    justify-content: center;
     gap: 1.5rem;
-    padding: 1.5rem 0;
+  }
+
+  .bottom {
+    padding-top: 1.25rem;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .selo {
@@ -214,6 +390,10 @@
 }
 
 @media (max-width: 480px) {
+  .newsletterCard {
+    border-radius: 14px;
+  }
+
   .logo {
     height: 48px;
   }

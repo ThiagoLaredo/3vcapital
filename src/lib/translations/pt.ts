@@ -15,7 +15,7 @@ export const pt = {
   },
   Home: {
     hero: {
-      title: "Onde a experiência transforma em Performance.",
+      title: "Onde a experiência se transforma em performance.",
       paragraph: "Realizamos a gestão do patrimônio para famílias, indivíduos e empresas, com base em seu momento de vida, suas metas e objetivos."
     },
     transactions: {
@@ -143,7 +143,7 @@ export const pt = {
       title: "Equipe",
     },
     intro: {
-      title: "Conheça a equipe",
+      title: "Nossa equipe",
       subtitle: "Sob a liderança de uma das mais experientes executivas do mercado, com 36 anos de atuação em instituições como Santander e Safra, **nosso time entrega soluções personalizadas nas áreas de investimentos, reestruturação financeira e governança corporativa.**"
     },
     teamCard: {
@@ -155,15 +155,10 @@ export const pt = {
     hero: {
       title: "Nossos valores",
     },
-    intro: {
-      title: "Nossos valores",
-      subtitle: "Nossos valores refletem nosso compromisso com a excelência, a transparência e o relacionamento de longo prazo com clientes e parceiros.",
-      phraseToAnimate: "compromisso com a excelência, a transparência e o relacionamento de longo prazo",
-    },
     values: [
-      { title: "Integridade", description: "Atuamos com ética e transparência em todas as nossas relações e decisões.", image: "integridade.webp" },
-      { title: "Excelência", description: "Buscamos a melhor solução para cada cliente, com rigor técnico e dedicação.", image: "excelencia.webp" },
-      { title: "Compromisso", description: "Nosso foco é o sucesso e a proteção do patrimônio de quem nos confia sua gestão.", image: "compromisso.webp" },
+      { title: "Transparência", description: "Atuamos com ética e transparência em todas as nossas relações e decisões.", image: "integridade.webp" },
+      { title: "Ética", description: "Buscamos a melhor solução para cada cliente, com rigor técnico e dedicação.", image: "excelencia.webp" },
+      { title: "Excelência", description: "Nosso foco é o sucesso e a proteção do patrimônio de quem nos confia sua gestão.", image: "compromisso.webp" },
     ],
   },
   NewsPage: {
@@ -189,8 +184,13 @@ export const pt = {
       title: "Quem Somos",
     },
     intro: {
-      fullText: "Nosso objetivo é proteger, desenvolver e preservar o patrimônio de nossos clientes perpetuando o seu legado. Oferecemos aos nossos clientes orientação, planejamento financeiro personalizado, estratégias de investimentos e sua implementação.",
-      phraseToAnimate: "proteger, desenvolver e preservar",
+      subtitle: "Somos uma gestora de patrimônio independente, voltada para apoiar decisões patrimoniais com assertividade, método e visão de longo prazo.",
+      fullText: "A 3V Capital é dedicada ao atendimento de famílias, indivíduos e empresas. Atuamos com uma visão integrada do patrimônio, combinando alocação de investimentos, consolidação patrimonial, planejamento financeiro e acompanhamento contínuo. Nosso trabalho parte de um princípio simples: cada patrimônio é único e deve ser gerido de forma personalizada, disciplinada e alinhada aos objetivos de longo prazo de cada cliente. Mais do que buscar resultados, buscamos estruturar decisões consistentes, proteger patrimônios e contribuir para a construção de legados duradouros.",
+      paragraphs: [
+        "A 3V Capital é dedicada ao atendimento de famílias, indivíduos e empresas. Atuamos com uma visão integrada do patrimônio, combinando alocação de investimentos, consolidação patrimonial, planejamento financeiro e acompanhamento contínuo.",
+        "Nosso trabalho parte de um princípio simples: cada patrimônio é único e deve ser gerido de forma personalizada, disciplinada e alinhada aos objetivos de longo prazo de cada cliente. Mais do que buscar resultados, buscamos estruturar decisões consistentes, proteger patrimônios e contribuir para a construção de legados duradouros.",
+      ],
+      phraseToAnimate: "cada patrimônio é único e deve ser gerido de forma personalizada, disciplinada e alinhada aos objetivos de longo prazo de cada cliente",
     },
     imageAlt: "Equipe 3V Capital",
   },
@@ -201,8 +201,8 @@ ContactPage: {
   },
   intro: {
     title: "Entre em contato",
-    address: "R. Padre João Manuel, 923 – Conj. 92",
-    addressDetails: "São Paulo – SP – 01411-901",
+    address: "Rua Padre João Manuel, nº 1212, conjuntos 92 e 93",
+    addressDetails: "Cerqueira César, CEP 01411-000",
     phone: "+55 11 98547-9699"
   },
   form: {
@@ -275,6 +275,14 @@ ContactPage: {
     title: "Compliance",
     introTitle: "Compliance",
     introSubtitle: "Acesse nossos documentos de compliance, políticas internas e manuais.",
+    cybersecurity: {
+      label: "Cybersecurity",
+      title: "A segurança da informação como extensão da governança e do compliance.",
+      lead: "A segurança da informação pode aparecer no site como extensão natural da governança e do compliance, em linguagem clara para o cliente.",
+      quote: "Na 3V Capital, a proteção das informações de nossos clientes é parte essencial da nossa estrutura de governança e compliance.",
+      paragraphOne: "Adotamos práticas e controles voltados à segurança da informação e à continuidade operacional, com o objetivo de mitigar riscos cibernéticos e reforçar a resiliência dos nossos processos.",
+      paragraphTwo: "Entendemos que confiança também se constrói pela forma como protegemos dados, processos e relacionamentos."
+    },
     view: "Visualizar",
     download: "Download"
   }

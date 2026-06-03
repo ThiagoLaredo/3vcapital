@@ -83,6 +83,9 @@ export default function HeroSection() {
           </video>
         )}
 
+        {/* Filtro de cor primária sobre o vídeo */}
+        <div className={styles.videoColorFilter}></div>
+
         {/* Placeholder */}
         {(!videoSrc || !isVideoLoaded) && (
           <div 

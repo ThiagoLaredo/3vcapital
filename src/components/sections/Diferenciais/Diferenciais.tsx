@@ -176,22 +176,6 @@ export default function Solutions() {
                     </div>
                   ))}
 
-                  <div className={styles.progressRing}>
-                    <svg viewBox="0 0 120 120">
-                      <circle cx="60" cy="60" r="54" className={styles.ringBg} />
-                      <circle
-                        cx="60"
-                        cy="60"
-                        r="54"
-                        className={styles.ringProgress}
-                        style={{ strokeDasharray: `${progress * 339} 339` }}
-                      />
-                    </svg>
-                    <div className={styles.progressText}>
-                      <span className={styles.progressNumber}>{Math.round(progress * 100)}</span>
-                      <span className={styles.progressPercent}>%</span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -264,23 +248,6 @@ export default function Solutions() {
                           />
                         </div>
                       ))}
-
-                      <div className={styles.progressRing}>
-                        <svg viewBox="0 0 120 120">
-                          <circle cx="60" cy="60" r="54" className={styles.ringBg} />
-                          <circle
-                            cx="60"
-                            cy="60"
-                            r="54"
-                            className={styles.ringProgress}
-                            style={{ strokeDasharray: `${progress * 339} 339` }}
-                          />
-                        </svg>
-                        <div className={styles.progressText}>
-                          <span className={styles.progressNumber}>{Math.round(progress * 100)}</span>
-                          <span className={styles.progressPercent}>%</span>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>

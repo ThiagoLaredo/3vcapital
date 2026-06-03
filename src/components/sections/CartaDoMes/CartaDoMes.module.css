@@ -27,7 +27,12 @@
 }
 
 .sectionTitle {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  @media (max-width: 768px) {
+    .sectionTitle {
+      font-size: 1.2rem;
+    }
+  }
   color: var(--title-color);
   font-weight: 300;
   line-height: 1.2;

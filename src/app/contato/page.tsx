@@ -106,8 +106,8 @@ export default function ContatoPage() {
                   {dict.intro?.title || (language === 'pt' ? 'Entre em contato' : 'Get in touch')}
                 </h2>
                 <address className={styles.addressBlock}>
-                  <p className={styles.addressLine}>R. Padre João Manuel, 923 – Conj. 92</p>
-                  <p className={styles.addressLine}>São Paulo – SP – 01411-901</p>
+                  <p className={styles.addressLine}>Rua Padre João Manuel, nº 1212, conjuntos 92 e 93</p>
+                  <p className={styles.addressLine}>Cerqueira César, CEP 01411-000</p>
                 </address>
                 <ul className={styles.contactList}>
                   <li>

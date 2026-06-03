@@ -32,8 +32,8 @@
 }
 
 .sectionTitle {
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--title-color);
+font-size: clamp(1.8rem, 3.6vw, 2.8rem); 
+ color: var(--title-color);
   font-weight: 300;
   line-height: 1.2;
   margin: 0;

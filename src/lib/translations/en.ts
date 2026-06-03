@@ -15,7 +15,7 @@ export const en = {
   },
   Home: {
     hero: {
-      title: "Where experience transforms into Performance.",
+      title: "Where experience transforms into performance.",
       paragraph: "We manage assets for families, individuals, and companies, based on their life stage, goals, and objectives."
     },
     transactions: {
@@ -139,10 +139,10 @@ export const en = {
   },
   TeamPage: {
     hero: {
-      title: "Meet the team",
+      title: "Our team",
     },
     intro: {
-      title: "Meet the team",
+      title: "Our team",
       subtitle: "Under the leadership of one of the market's most experienced executives, with 36 years of experience at institutions such as Santander and Safra, **our team delivers personalized solutions in the areas of investments, financial restructuring, and corporate governance.**"
     },
     teamCard: {
@@ -154,15 +154,10 @@ export const en = {
     hero: {
       title: "Our values",
     },
-    intro: {
-      title: "Our values",
-      subtitle: "Our values reflect our commitment to excellence, transparency and long-term relationships with clients and partners.",
-      phraseToAnimate: "commitment to excellence, transparency and long-term relationships",
-    },
     values: [
-      { title: "Integrity", description: "We act with ethics and transparency in all our relationships and decisions.", image: "integridade.webp" },
-      { title: "Excellence", description: "We seek the best solution for each client, with technical rigor and dedication.", image: "excelencia.webp" },
-      { title: "Commitment", description: "Our focus is the success and protection of the assets of those who entrust us with their management.", image: "compromisso.webp" },
+      { title: "Transparency", description: "We act with ethics and transparency in all our relationships and decisions.", image: "integridade.webp" },
+      { title: "Ethics", description: "We seek the best solution for each client, with technical rigor and dedication.", image: "excelencia.webp" },
+      { title: "Excellence", description: "Our focus is the success and protection of the assets of those who entrust us with their management.", image: "compromisso.webp" },
     ],
   },
   OQueFazemosPage: {
@@ -180,6 +175,7 @@ export const en = {
       title: "Who we are",
     },
     intro: {
+      subtitle: "We are an independent wealth management firm focused on supporting wealth decisions with assertiveness, method, and a long-term view.",
       fullText: "Our goal is to protect, develop, and preserve our clients' assets, perpetuating their legacy. We offer our clients guidance, personalized financial planning, investment strategies, and implementation.",
       phraseToAnimate: "protect, develop, and preserve",
     },
@@ -202,8 +198,8 @@ ContactPage: {
   },
   intro: {
     title: "Get in touch",
-    address: "R. Padre João Manuel, 923 – Suite 92",
-    addressDetails: "São Paulo – SP – 01411-901",
+    address: "Rua Padre João Manuel, nº 1212, suites 92 and 93",
+    addressDetails: "Cerqueira César, CEP 01411-000",
     phone: "+55 11 98547-9699"
   },
   form: {
@@ -273,6 +269,14 @@ ContactPage: {
     title: "Compliance",
     introTitle: "Compliance",
     introSubtitle: "Access our compliance documents, internal policies and manuals.",
+    cybersecurity: {
+      label: "Cybersecurity",
+      title: "Information security as a natural extension of governance and compliance",
+      lead: "Information security can be presented as a natural extension of governance and compliance, in clear language for clients.",
+      quote: "At 3V Capital, protecting our clients' information is an essential part of our governance and compliance framework.",
+      paragraphOne: "We adopt practices and controls focused on information security and operational continuity to mitigate cyber risks and strengthen the resilience of our processes.",
+      paragraphTwo: "We understand that trust is also built by the way we protect data, processes, and relationships."
+    },
     view: "View",
     download: "Download"
   }

@@ -44,7 +44,7 @@
 }
 
 .label {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: var(--white); /* Labels em cinza */
   line-height: 1.5;
 }
@@ -56,7 +56,7 @@
   }
 
   .title {
-    font-size: .8rem;
+     font-size: 0.75rem;
     margin-bottom: 1.5rem;
   }
   
