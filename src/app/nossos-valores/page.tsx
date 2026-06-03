@@ -20,9 +20,9 @@ export default function NossosValoresPage() {
   return (
     <div className={styles.page}>
       <PageIntroSection
-        title={dict.intro.title}
-        fullText={dict.intro.subtitle}
-        phraseToAnimate={dict.intro.phraseToAnimate ?? ''}
+        title={dict.hero.title}
+        fullText=""
+        phraseToAnimate=""
       />
 
       <section className={styles.valuesSection}>

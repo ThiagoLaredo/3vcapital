@@ -176,7 +176,11 @@ export const en = {
     },
     intro: {
       subtitle: "We are an independent wealth management firm focused on supporting wealth decisions with assertiveness, method, and a long-term view.",
-      fullText: "Our goal is to protect, develop, and preserve our clients' assets, perpetuating their legacy. We offer our clients guidance, personalized financial planning, investment strategies, and implementation.",
+      fullText: "3V Capital is dedicated to serving families, individuals, and companies. We operate with an integrated view of wealth, combining investment allocation, wealth consolidation, financial planning, and continuous monitoring. Our work is based on a simple principle: each wealth portfolio is unique and should be managed in a personalized and disciplined way, aligned with each client's long-term goals. More than pursuing results, we seek to structure consistent decisions, protect wealth, and contribute to building lasting legacies.",
+      paragraphs: [
+        "3V Capital is dedicated to serving families, individuals, and companies. We operate with an integrated view of wealth, combining investment allocation, wealth consolidation, financial planning, and continuous monitoring.",
+        "Our work is based on a simple principle: each wealth portfolio is unique and should be managed in a personalized and disciplined way, aligned with each client's long-term goals. More than pursuing results, we seek to structure consistent decisions, protect wealth, and contribute to building lasting legacies.",
+      ],
       phraseToAnimate: "protect, develop, and preserve",
     },
     imageAlt: "3V Capital team",
