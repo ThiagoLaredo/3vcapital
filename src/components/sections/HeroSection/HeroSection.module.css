@@ -30,14 +30,25 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 0;
   opacity: 0;
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: hue-rotate(339deg) saturate(0.85) contrast(1.05) brightness(0.88);
   transform: translateZ(0); /* Aceleração GPU */
   -webkit-transform: translateZ(0); /* Para Safari */
 }
 
 .video.loaded {
   opacity: 1;
+}
+
+.videoColorFilter {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(14, 152, 153, 0.45);
+  mix-blend-mode: multiply;
 }
 
 /* Placeholder otimizado */
@@ -65,24 +76,26 @@
 }
 
 /* Overlay para melhor legibilidade - otimizado para mobile */
-.overlay {
+ .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-background: linear-gradient(to right, 
-    rgba(14, 152, 153, 0.9) 0%, 
-    rgba(14, 152, 153, 0.8) 30%, 
-    rgba(0, 0, 0, 0.3) 70%, 
-    rgba(0, 0, 0, 0.3) 100%);
-  z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(14, 152, 153, 0.66) 0%,
+    rgba(14, 152, 153, 0.48) 34%,
+    rgba(14, 152, 153, 0.1) 66%,
+    rgba(14, 152, 153, 0) 100%
+  );
+  z-index: 2;
 }
 
 /* Conteúdo com animação suave */
 .contentContainer {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   height: 100%;
   display: flex;
@@ -323,12 +336,18 @@ background: linear-gradient(to right,
     left: 0;
     width: 100%;
     height: 100%;
-  background: linear-gradient(to bottom, 
-    rgba(14, 152, 153, 0.9) 0%, 
-    rgba(14, 152, 153, 0.9) 30%, 
-    rgba(14, 152, 153, 0.5) 70%, 
-    rgba(14, 152, 153, 0.3) 100%);
-    z-index: 1;
+    background: linear-gradient(
+      to right,
+      rgba(14, 152, 153, 0.72) 0%,
+      rgba(14, 152, 153, 0.54) 36%,
+      rgba(14, 152, 153, 0.28) 68%,
+      rgba(14, 152, 153, 0) 100%
+    );
+    z-index: 2;
+  }
+
+  .videoColorFilter {
+    background: rgba(14, 152, 153, 0.38);
   }
   
   .loadingSpinner {
