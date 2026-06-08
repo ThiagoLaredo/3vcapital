@@ -114,6 +114,35 @@ background: linear-gradient(to right,
   animation: heroTitleReveal 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid var(--white);
+  border-radius: 999px;
+  color: var(--white);
+  background: transparent;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-top: 1rem;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.contentContainer.show .ctaButton {
+  animation: heroParagraphReveal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards;
+}
+
+.ctaButton:hover,
+.ctaButton:focus-visible {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
 /* Parágrafos - entrada suave e refinada */
 .paragraph {
   font-size: 1.5rem;
@@ -247,6 +276,12 @@ background: linear-gradient(to right,
     line-height: normal;
     max-width: 100%;
   }
+
+  .ctaButton {
+    margin-top: 0.75rem;
+    padding: 0.8rem 1.35rem;
+    font-size: 0.9rem;
+  }
   
   .paragraph {
     font-size: 1.2rem;
@@ -313,6 +348,11 @@ background: linear-gradient(to right,
   
   .title {
     font-size: 2.2rem;
+  }
+
+  .ctaButton {
+    padding: 0.75rem 1.2rem;
+    font-size: 0.88rem;
   }
   
   .paragraph {

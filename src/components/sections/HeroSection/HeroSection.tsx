@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { useLanguage } from '../../../contexts/LanguageContext';
 import { pt, en } from '../../../lib/translations';
 import styles from './HeroSection.module.css';
@@ -103,6 +104,9 @@ export default function HeroSection() {
       <div className={`${styles.contentContainer} ${showContent ? styles.show : ''}`}>
         <div className={styles.heroContent}>
           <h1 className={styles.title}>{hero.title}</h1>
+          <Link href="#experience" className={styles.ctaButton}>
+            Conheça a 3V Capital
+          </Link>
           {/* <p className={styles.paragraph}>{hero.paragraph}</p> */}
         </div>
       </div>
