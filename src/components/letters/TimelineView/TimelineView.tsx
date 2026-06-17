@@ -41,7 +41,7 @@ export default function TimelineView({ letters, onOpenPreview }: TimelineViewPro
   // 🔥 NOVA FUNÇÃO: Gera a URL correta com base no idioma e chama o preview
   const handleOpenPdf = (letter: MonthlyLetter) => {
     const url = getPdfUrl(letter, language);
-    onOpenPreview(url, letter.title);
+    onOpenPreview(url, getLocalizedTitle(letter, language));
   };
 
   return (
