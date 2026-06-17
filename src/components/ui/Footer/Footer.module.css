@@ -250,6 +250,7 @@
 .mapMediaContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  width: 100%;
   gap: 0;
   border-radius: 12px;
   overflow: hidden;
@@ -399,12 +400,24 @@
   }
 
   .blockMap {
-    align-items: center;
-    text-align: center;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  .mapMediaContainer {
+    grid-template-columns: 1fr;
+    width: 100%;
   }
 
   .mapWrap {
-    height: 180px;
+    height: 190px;
+    width: 100%;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .officeImageWrap {
+    height: 190px;
     width: 100%;
   }
 
