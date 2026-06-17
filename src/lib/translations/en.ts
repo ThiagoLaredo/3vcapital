@@ -143,7 +143,7 @@ export const en = {
     },
     intro: {
       title: "Our team",
-      subtitle: "Under the leadership of one of the market's most experienced executives, with 36 years of experience at institutions such as Santander and Safra, **our team delivers personalized solutions in the areas of investments, financial restructuring, and corporate governance.**"
+      subtitle: "Under the leadership of one of the market's most experienced executives, with 36 years of experience at institutions such as Santander and Safra, **our team delivers personalized solutions in the areas of investments and asset management in Brazil and abroad.**"
     },
     teamCard: {
       knowMore: "Know more",
@@ -155,9 +155,9 @@ export const en = {
       title: "Our values",
     },
     values: [
-      { title: "Transparency", description: "We act with ethics and transparency in all our relationships and decisions.", image: "integridade.webp" },
-      { title: "Ethics", description: "We seek the best solution for each client, with technical rigor and dedication.", image: "excelencia.webp" },
-      { title: "Excellence", description: "Our focus is the success and protection of the assets of those who entrust us with their management.", image: "compromisso.webp" },
+      { title: "Transparency", description: "We are committed to being assertive and transparent with our clients, both in terms of investments and returns.", image: "integridade.webp" },
+      { title: "Ethics", description: "We have the highest ethical standards. We always act in the best interests of our clients. We stand for loyalty, integrity, trust, and accountability.", image: "excelencia.webp" },
+      { title: "Excellence", description: "The constant quest for excellence is one of the pillars of our strategy. We understand that bringing good returns for our clients is crucial to meet their expectations and strengthen our commitment to their emotional and financial well-being.", image: "compromisso.webp" },
     ],
   },
   OQueFazemosPage: {

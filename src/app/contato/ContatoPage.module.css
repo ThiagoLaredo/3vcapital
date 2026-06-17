@@ -45,14 +45,17 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
+.imageWrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 80, 50, 0.28);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
 .officeImage {
   object-fit: cover;
-  filter: none;
-  mix-blend-mode: multiply;
-  transition: filter 0.3s ease;
-}
-.imageWrapper:hover .officeImage {
-  filter: grayscale(100%);
 }
 
 /* Coluna direita */

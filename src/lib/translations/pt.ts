@@ -144,7 +144,7 @@ export const pt = {
     },
     intro: {
       title: "Nossa equipe",
-      subtitle: "Sob a liderança de uma das mais experientes executivas do mercado, com 36 anos de atuação em instituições como Santander e Safra, **nosso time entrega soluções personalizadas nas áreas de investimentos, reestruturação financeira e governança corporativa.**"
+      subtitle: "Sob a liderança de uma das mais experientes executivas do mercado, com 36 anos de atuação em instituições como Santander e Safra, **nosso time entrega soluções personalizadas nas áreas de investimentos e gestão patrimonial no Brasil e no Exterior.**"
     },
     teamCard: {
       knowMore: "Saiba mais",
@@ -156,9 +156,9 @@ export const pt = {
       title: "Nossos valores",
     },
     values: [
-      { title: "Transparência", description: "Atuamos com ética e transparência em todas as nossas relações e decisões.", image: "integridade.webp" },
-      { title: "Ética", description: "Buscamos a melhor solução para cada cliente, com rigor técnico e dedicação.", image: "excelencia.webp" },
-      { title: "Excelência", description: "Nosso foco é o sucesso e a proteção do patrimônio de quem nos confia sua gestão.", image: "compromisso.webp" },
+      { title: "Transparência", description: "Mantemos um relacionamento simples, direto e transparente com nossos clientes, seja em relação aos investimentos, como em relação à remuneração.", image: "integridade.webp" },
+      { title: "Ética", description: "Mantemos a mais alta relação de ética e confiança com nossos clientes, agindo sempre no seu melhor interesse. Atuamos com lealdade, boa-fé, confidencialidade e confiança na relação com os mesmos.", image: "excelencia.webp" },
+      { title: "Excelência", description: "Nossa busca incessante pela excelência é um dos pilares de nossa estratégia. Entendemos que a geração de resultados para nossos clientes consolida seus objetivos e aspirações e fortalece nosso compromisso com seu bem-estar financeiro e emocional.", image: "compromisso.webp" },
     ],
   },
   NewsPage: {

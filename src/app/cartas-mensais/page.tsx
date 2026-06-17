@@ -17,7 +17,7 @@ import styles from './CartasPage.module.css';
 import PDFButton from '@/components/buttons/PDFButton/PDFButton'; // Importe o botão
 import { getPdfUrl } from '@/lib/pdfUtils';
 import { MonthlyLetter } from '@/types/letter';
-import { getLocalizedTitle, getLocalizedDescription } from '@/lib/letterUtils';
+import { getLocalizedTitle } from '@/lib/letterUtils';
 
 type ViewMode = 'timeline' | 'calendar';
 
@@ -26,6 +26,15 @@ const formatMonthAbbreviation = (monthNumber: number, language: 'pt' | 'en') => 
   const months = {
     pt: ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'],
     en: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+  };
+  return months[language][monthNumber - 1];
+};
+
+// Função para formatar o mês por extenso (Janeiro, Junho, etc.)
+const formatMonthFull = (monthNumber: number, language: 'pt' | 'en') => {
+  const months = {
+    pt: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+    en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   };
   return months[language][monthNumber - 1];
 };
@@ -53,7 +62,7 @@ export default function CartasMensaisPage() {
 
   const openLetterPreview = (letter: MonthlyLetter) => {
     const pdfUrl = getPdfUrl(letter, language);
-    handleOpenPreview(pdfUrl, letter.title);
+    handleOpenPreview(pdfUrl, getLocalizedTitle(letter, language));
   };
   // =====================================================
 
@@ -81,7 +90,7 @@ export default function CartasMensaisPage() {
 
   // Formatar data da carta em destaque
   const formattedFeaturedDate = featuredLetter 
-    ? `${formatMonthAbbreviation(featuredLetter.month, language)} ${featuredLetter.year}`
+    ? `${formatMonthFull(featuredLetter.month, language)} ${featuredLetter.year}`
     : '';
 
   // Efeitos de filtro
@@ -178,14 +187,6 @@ export default function CartasMensaisPage() {
                     <div className={styles.featuredDate}>
                       {formattedFeaturedDate}
                     </div>
-
-                    <h2 className={styles.featuredTitle}>
-                      {getLocalizedTitle(featuredLetter, language)}
-                    </h2>
-
-                    <p className={styles.featuredDescription}>
-                      {getLocalizedDescription(featuredLetter, language)}
-                    </p>
 
                     <div className={styles.cardActions}>
                       <PDFButton 

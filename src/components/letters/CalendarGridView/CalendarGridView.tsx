@@ -59,7 +59,7 @@ export default function CalendarGridView({
   // 🔥 NOVA FUNÇÃO: Gera a URL correta e chama o preview
   const handleOpenPdf = (letter: MonthlyLetter) => {
     const url = getPdfUrl(letter, language);
-    onOpenPreview(url, letter.title);
+    onOpenPreview(url, getLocalizedTitle(letter, language));
   };
 
   return (
@@ -113,7 +113,6 @@ export default function CalendarGridView({
 
                       {/* Conteúdo do Mês */}
                       <div className={styles.monthContent}>
-                        <h4 className={styles.letterTitle}>{getLocalizedTitle(letter, language)}</h4>
                         <p className={styles.letterDescription}>
                           {getLocalizedDescription(letter, language).length > 100 
                             ? `${getLocalizedDescription(letter, language).substring(0, 100)}...` 

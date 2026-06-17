@@ -3,7 +3,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { pt, en } from '@/lib/translations';
 import { lettersData } from '@/lib/letters';
-import { getLocalizedTitle, getLocalizedDescription } from '@/lib/letterUtils';
+import { getLocalizedTitle } from '@/lib/letterUtils';
 import { getPdfUrl } from '@/lib/pdfUtils';
 import { MonthlyLetter } from '@/types/letter';
 import { useMemo, useState } from 'react';
@@ -17,6 +17,14 @@ const formatMonthAbbreviation = (monthNumber: number, language: 'pt' | 'en') => 
   const months = {
     pt: ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'],
     en: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+  };
+  return months[language][monthNumber - 1];
+};
+
+const formatMonthFull = (monthNumber: number, language: 'pt' | 'en') => {
+  const months = {
+    pt: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+    en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   };
   return months[language][monthNumber - 1];
 };
@@ -40,7 +48,7 @@ export default function CartaDoMesFull() {
   }, [lettersFrom2023]);
 
   const formattedDate = featuredLetter
-    ? `${formatMonthAbbreviation(featuredLetter.month, language)} ${featuredLetter.year}`
+    ? `${formatMonthFull(featuredLetter.month, language)} ${featuredLetter.year}`
     : '';
 
   const openLetterPreview = (letter: MonthlyLetter) => {
@@ -80,13 +88,6 @@ export default function CartaDoMesFull() {
               {dict?.badge || (language === 'pt' ? 'Carta Econômica' : 'Economic Letter')}
             </span>
           </div>
-
-          <h3 className={styles.cardTitle}>
-            {getLocalizedTitle(featuredLetter, language)}
-          </h3>
-          <p className={styles.cardDescription}>
-            {getLocalizedDescription(featuredLetter, language)}
-          </p>
 
           <div className={styles.cardActions}>
             <PDFButton
