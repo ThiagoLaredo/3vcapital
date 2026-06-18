@@ -66,7 +66,7 @@
 
 .logoFullMark img,
 .logoIconBadge img {
-  height: 52px;
+  height: 62px;
   width: auto;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -99,15 +99,15 @@
 }
 
 .header.scrolled .logoIconBadge {
-  width: 58px;
-  height: 58px;
+  width: 68px;
+  height: 68px;
   opacity: 1;
   transform: scale(1);
 }
 
 .header.scrolled .logoIconBadge img {
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
 }
 
 .headerActions {
@@ -663,22 +663,22 @@
   }
 
   .logoFullMark img {
-    height: 46px;
+    height: 54px;
   }
 
   .logoIconBadge {
-    width: 46px;
-    height: 46px;
+    width: 54px;
+    height: 54px;
   }
 
   .logoIconBadge img {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
   }
 
   .header.scrolled .logoIconBadge {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
   }
 
   .container {
@@ -818,17 +818,17 @@
   }
 
   .logoFullMark img {
-    height: 42px;
+    height: 50px;
   }
 
   .logoIconBadge {
-    width: 42px;
-    height: 42px;
+    width: 50px;
+    height: 50px;
   }
 
   .logoIconBadge img {
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
   }
 
   .container {
