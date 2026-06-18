@@ -76,7 +76,7 @@ export default function CartaDoMesFull() {
         {/* Coluna esquerda: label + título + ações */}
         <div className={styles.contentColumn}>
           <span className={styles.sectionLabel}>
-            {dict?.label || (language === 'pt' ? 'Publicações' : 'Publications')}
+            {dict?.badge || (language === 'pt' ? 'Carta Econômica' : 'Economic Letter')}
           </span>
           <h2 className={styles.sectionTitle}>
             {dict?.title || (language === 'pt' ? 'Carta do Mês' : 'Letter of the Month')}
@@ -84,9 +84,6 @@ export default function CartaDoMesFull() {
 
           <div className={styles.cardMeta}>
             <span className={styles.date}>{formattedDate}</span>
-            <span className={styles.badge}>
-              {dict?.badge || (language === 'pt' ? 'Carta Econômica' : 'Economic Letter')}
-            </span>
           </div>
 
           <div className={styles.cardActions}>

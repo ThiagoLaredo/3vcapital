@@ -232,7 +232,7 @@
 .blockMap {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.9rem;
 }
 
 .blockMap h3 {
@@ -244,27 +244,16 @@
   color: var(--text-on-dark);
   line-height: 1.5;
   margin: 0;
-  margin-bottom: 0.75rem;
-}
-
-.mapMediaContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-  gap: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.2rem;
 }
 
 .mapWrap {
   position: relative;
   width: 100%;
   height: 160px;
-  border-radius: 0;
+  border-radius: 10px;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.2);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2); 
 }
 
 .mapWrap iframe {
@@ -276,8 +265,8 @@
 .officeImageWrap {
   position: relative;
   width: 100%;
-  height: 160px;
-  border-radius: 0;
+  height: 220px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -285,7 +274,9 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(30, 80, 50, 0.28);
+  background: var(--primary-color);
+  filter: opacity(0.38);
+  mix-blend-mode: multiply;
   pointer-events: none;
   border-radius: inherit;
 }
@@ -404,16 +395,9 @@
     text-align: left;
   }
 
-  .mapMediaContainer {
-    grid-template-columns: 1fr;
-    width: 100%;
-  }
-
   .mapWrap {
     height: 190px;
     width: 100%;
-    border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .officeImageWrap {

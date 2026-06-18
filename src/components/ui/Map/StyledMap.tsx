@@ -8,15 +8,21 @@ interface Props {
   zoom?: number;
 }
 
+type GoogleMapStyle = {
+  featureType?: string;
+  elementType?: string;
+  stylers: Array<{ color?: string }>;
+};
+
 export default function StyledMap({
   center = { lat: -23.565028, lng: -46.665078 },
   height = '220px',
-  zoom = 16,
+  zoom = 22,
 }: Props) {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const initializedRef = useRef(false);
 
-  const styles: google.maps.MapTypeStyle[] = [
+  const styles: GoogleMapStyle[] = [
     { elementType: 'geometry', stylers: [{ color: '#f5f5f5' }] },
     { elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] },
     { featureType: 'water', stylers: [{ color: '#cfe8e8' }] },

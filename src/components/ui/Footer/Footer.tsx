@@ -266,20 +266,18 @@ export default function Footer() {
           <div className={styles.blockMap}>
             <h3 className={styles.blockTitle}>{translations.Footer.address}</h3>
             <p className={styles.addressText}>{ADDRESS.replace('\n', ' · ')}</p>
-            <div className={styles.mapMediaContainer}>
-              <div className={styles.mapWrap}>
-                <LeafletMap />
-              </div>
-              <div className={styles.officeImageWrap}>
-                <Image
-                  src="/fachada-escritorio.jpg"
-                  alt={language === 'pt' ? 'Escritório 3V Capital - São Paulo' : '3V Capital office - São Paulo'}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className={styles.officeImage}
-                  priority
-                />
-              </div>
+            <div className={styles.mapWrap}>
+              <LeafletMap zoom={17} />
+            </div>
+            <div className={styles.officeImageWrap}>
+              <Image
+                src="/fachada-escritorio.jpg"
+                alt={language === 'pt' ? 'Escritório 3V Capital - São Paulo' : '3V Capital office - São Paulo'}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className={styles.officeImage}
+                priority
+              />
             </div>
           </div>
         </div>
