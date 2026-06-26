@@ -5,11 +5,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { pt, en } from '@/lib/translations';
-import { FaPhone, FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaLinkedin, FaMobileAlt } from 'react-icons/fa';
 import styles from './ContatoPage.module.css';
 
 const EMAIL = 'contato@3vcapital.com.br';
 const WHATSAPP_NUMBER = '5511985479699';
+const LANDLINE_NUMBER = '551135132176';
 const LINKEDIN_URL = 'https://br.linkedin.com/company/3vcapital';
 
 export default function ContatoPage() {
@@ -123,8 +124,14 @@ export default function ContatoPage() {
                       rel="noopener noreferrer"
                       className={styles.contactLink}
                     >
-                      <FaPhone className={styles.contactIcon} />
+                      <FaMobileAlt className={styles.contactIcon} />
                       +55 11 98547-9699
+                    </a>
+                  </li>
+                  <li>
+                    <a href={`tel:+${LANDLINE_NUMBER}`} className={styles.contactLink}>
+                      <FaPhone className={styles.contactIcon} />
+                      +55 11 3513-2176
                     </a>
                   </li>
                   <li>

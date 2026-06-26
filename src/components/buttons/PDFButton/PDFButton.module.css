@@ -29,14 +29,17 @@
 }
 
 .secondary {
-  background-color: transparent;
+  background-color: var(--surface-elevated, #f1f5f4);
   color: var(--primary-color, #0E9899);
   border: 2px solid var(--primary-color, #0E9899);
   padding: 0.625rem 1.25rem;
 }
 
 .secondary:hover {
-  background-color: rgba(14, 152, 153, 0.1);
+  background-color: var(--primary-color-dark, #0a7a7a);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(14, 152, 153, 0.3);
 }
 
 .ghost {

@@ -174,6 +174,8 @@ const Header = () => {
               <button
                 className={`${styles.mobileLangBtn} ${language === 'pt' ? styles.active : ''}`}
                 onClick={() => handleLanguageChange('pt')}
+                disabled={language === 'pt'}
+                aria-disabled={language === 'pt'}
                 aria-label="Português"
               >
                 PT
@@ -181,6 +183,8 @@ const Header = () => {
               <button
                 className={`${styles.mobileLangBtn} ${language === 'en' ? styles.active : ''}`}
                 onClick={() => handleLanguageChange('en')}
+                disabled={language === 'en'}
+                aria-disabled={language === 'en'}
                 aria-label="English"
               >
                 EN

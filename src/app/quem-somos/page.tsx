@@ -1,5 +1,6 @@
 'use client';
 
+import { Fragment } from 'react';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { pt, en } from '@/lib/translations';
@@ -17,12 +18,7 @@ export default function QuemSomosPage() {
       : 'independent wealth management firm';
   const animatedSubtitlePhrase = subtitleText.includes(subtitlePhrase) ? subtitlePhrase : '';
   const intro = dict?.intro;
-  const paragraphs: string[] =
-    intro && 'paragraphs' in intro && Array.isArray(intro.paragraphs) && intro.paragraphs.length > 0
-      ? intro.paragraphs
-      : intro?.fullText
-        ? [intro.fullText]
-        : [];
+  const paragraphs: string[] = Array.isArray(intro?.paragraphs) ? intro.paragraphs : [];
   const highlightedPhrase =
     language === 'pt'
       ? 'cada patrimônio é único e deve ser gerido de forma personalizada, disciplinada e alinhada aos objetivos de longo prazo de cada cliente'
@@ -30,7 +26,18 @@ export default function QuemSomosPage() {
 
   const renderParagraph = (paragraph: string) => {
     if (!paragraph.includes(highlightedPhrase)) {
-      return paragraph;
+      const brandParts = paragraph.split('3V Capital');
+
+      if (brandParts.length === 1) {
+        return paragraph;
+      }
+
+      return brandParts.map((part, index) => (
+        <Fragment key={`brand-part-${index}`}>
+          {index > 0 && <strong className={styles.highlight}>3V Capital</strong>}
+          {part}
+        </Fragment>
+      ));
     }
 
     const [before, after] = paragraph.split(highlightedPhrase);

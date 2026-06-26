@@ -1,6 +1,7 @@
 // app/compliance/page.tsx
 'use client';
 
+import { Fragment } from 'react';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { pt, en } from '@/lib/translations';
@@ -132,6 +133,21 @@ export default function CompliancePage() {
     setIsModalOpen(true);
   };
 
+  const renderBrandHighlight = (text: string) => {
+    const brandParts = text.split('3V Capital');
+
+    if (brandParts.length === 1) {
+      return text;
+    }
+
+    return brandParts.map((part, index) => (
+      <Fragment key={`brand-part-${index}`}>
+        {index > 0 && <strong className={styles.brandHighlight}>3V Capital</strong>}
+        {part}
+      </Fragment>
+    ));
+  };
+
   return (
     <div className={styles.compliancePage}>
       <PDFPreviewModal
@@ -152,23 +168,22 @@ export default function CompliancePage() {
       <section className={styles.cyberSection} aria-labelledby="cybersecurity-title">
         <div className={styles.container}>
           <div className={styles.cyberCard}>
-            <span className={styles.cyberLabel}>{cyber?.label || 'Cybersecurity'}</span>
-            <h2 id="cybersecurity-title" className={styles.cyberTitle}>
-              {cyber?.title || 'A seguranca da informacao como extensao da governanca e do compliance'}
+            <h2 id="cybersecurity-title" className={styles.srOnly}>
+              {cyber?.label || 'Cybersecurity'}
             </h2>
-            <p className={styles.cyberLead}>
-              {cyber?.lead || 'A seguranca da informacao pode aparecer no site como extensao natural da governanca e do compliance, em linguagem clara para o cliente.'}
+
+            <p className={styles.cyberText}>
+              {renderBrandHighlight(
+                cyber?.quote ||
+                  'Na 3V Capital, a protecao das informacoes de nossos clientes e parte essencial da nossa estrutura de governanca e compliance.'
+              )}
             </p>
 
-            <blockquote className={styles.cyberQuote}>
-              "{cyber?.quote || 'Na 3V Capital, a protecao das informacoes de nossos clientes e parte essencial da nossa estrutura de governanca e compliance.'}"
-            </blockquote>
-
             <div className={styles.cyberTextBlock}>
-              <p>
+              <p className={styles.cyberText}>
                 {cyber?.paragraphOne || 'Adotamos praticas e controles voltados a seguranca da informacao e a continuidade operacional, com o objetivo de mitigar riscos ciberneticos e reforcar a resiliencia dos nossos processos.'}
               </p>
-              <p>
+              <p className={styles.cyberText}>
                 {cyber?.paragraphTwo || 'Entendemos que confianca tambem se constroi pela forma como protegemos dados, processos e relacionamentos.'}
               </p>
             </div>

@@ -61,7 +61,7 @@ export const pt = {
         },
         {
           title: "Visão integrada do patrimônio",
-          description: "Investimentos no Brasil e no exterior, trazendo uma visão integrada de estruturas, riscos, liquidez e sucessão."
+          description: "Investimentos no Brasil e no exterior, trazendo uma visão integrada de retornos, estruturas, riscos e liquidez."
         },
         {
           title: "Consolidação patrimonial",
@@ -69,11 +69,11 @@ export const pt = {
         },
         {
           title: "Atendimento próximo e personalizado",
-          description: "Atendimento exclusivo e próximo com uma equipe dedicada e multidisciplinar."
+          description: "Atendimento exclusivo com uma equipe dedicada e multidisciplinar."
         },
         {
           title: "Planejamento financeiro e patrimonial",
-          description: "Oferecemos aos nossos clientes o serviço de planejamento financeiro e patrimonial integrado à gestão patrimonial."
+          description: "Oferecemos aos nossos clientes o serviço de planejamento financeiro integrado à gestão patrimonial."
         },
       ]
     },
@@ -157,7 +157,7 @@ export const pt = {
     },
     values: [
       { title: "Transparência", description: "Mantemos um relacionamento simples, direto e transparente com nossos clientes, seja em relação aos investimentos, como em relação à remuneração.", image: "integridade.webp" },
-      { title: "Ética", description: "Mantemos a mais alta relação de ética e confiança com nossos clientes, agindo sempre no seu melhor interesse. Atuamos com lealdade, boa-fé, confidencialidade e confiança na relação com os mesmos.", image: "excelencia.webp" },
+      { title: "Ética", description: "Mantemos a mais alta relação de ética e confiança com nossos clientes e parceiros, agindo sempre no seu melhor interesse. Atuamos com lealdade, boa-fé, confidencialidade e confiança na relação com os mesmos.", image: "excelencia.webp" },
       { title: "Excelência", description: "Nossa busca incessante pela excelência é um dos pilares de nossa estratégia. Entendemos que a geração de resultados para nossos clientes consolida seus objetivos e aspirações e fortalece nosso compromisso com seu bem-estar financeiro e emocional.", image: "compromisso.webp" },
     ],
   },
@@ -185,9 +185,8 @@ export const pt = {
     },
     intro: {
       subtitle: "Somos uma gestora de patrimônio independente, voltada para apoiar decisões patrimoniais com assertividade, método e visão de longo prazo.",
-      fullText: "A 3V Capital é dedicada ao atendimento de famílias, indivíduos e empresas. Atuamos com uma visão integrada do patrimônio, combinando alocação de investimentos, consolidação patrimonial, planejamento financeiro e acompanhamento contínuo. Nosso trabalho parte de um princípio simples: cada patrimônio é único e deve ser gerido de forma personalizada, disciplinada e alinhada aos objetivos de longo prazo de cada cliente. Mais do que buscar resultados, buscamos estruturar decisões consistentes, proteger patrimônios e contribuir para a construção de legados duradouros.",
       paragraphs: [
-        "A 3V Capital é dedicada ao atendimento de famílias, indivíduos e empresas. Atuamos com uma visão integrada do patrimônio, combinando alocação de investimentos, consolidação patrimonial, planejamento financeiro e acompanhamento contínuo.",
+        "A 3V Capital dedica-se ao atendimento de famílias, indivíduos e empresas. Atuamos com uma visão integrada do patrimônio, combinando alocação de investimentos, consolidação patrimonial, planejamento financeiro e acompanhamento contínuo.",
         "Nosso trabalho parte de um princípio simples: cada patrimônio é único e deve ser gerido de forma personalizada, disciplinada e alinhada aos objetivos de longo prazo de cada cliente. Mais do que buscar resultados, buscamos estruturar decisões consistentes, proteger patrimônios e contribuir para a construção de legados duradouros.",
       ],
       phraseToAnimate: "cada patrimônio é único e deve ser gerido de forma personalizada, disciplinada e alinhada aos objetivos de longo prazo de cada cliente",

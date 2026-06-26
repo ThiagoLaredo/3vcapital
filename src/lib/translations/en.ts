@@ -61,7 +61,7 @@ export const en = {
         },
         {
           title: "Integrated view of wealth",
-          description: "Investments in Brazil and abroad, providing an integrated view of structures, risks, liquidity, and succession."
+          description: "Investments in Brazil and abroad, providing an integrated view of returns, structures, risks, and liquidity."
         },
         {
           title: "Wealth consolidation",
@@ -69,11 +69,11 @@ export const en = {
         },
         {
           title: "Close and personalized service",
-          description: "Exclusive and close service with a dedicated, multidisciplinary team."
+          description: "Exclusive service with a dedicated, multidisciplinary team."
         },
         {
           title: "Financial and wealth planning",
-          description: "We offer our clients integrated financial and wealth planning as part of overall asset management."
+          description: "We offer our clients integrated financial planning as part of overall asset management."
         },
       ]
     },
@@ -156,7 +156,7 @@ export const en = {
     },
     values: [
       { title: "Transparency", description: "We are committed to being assertive and transparent with our clients, both in terms of investments and returns.", image: "integridade.webp" },
-      { title: "Ethics", description: "We have the highest ethical standards. We always act in the best interests of our clients. We stand for loyalty, integrity, trust, and accountability.", image: "excelencia.webp" },
+      { title: "Ethics", description: "We have the highest ethical standards. We always act in the best interests of our clients and partners. We stand for loyalty, integrity, trust, and accountability.", image: "excelencia.webp" },
       { title: "Excellence", description: "The constant quest for excellence is one of the pillars of our strategy. We understand that bringing good returns for our clients is crucial to meet their expectations and strengthen our commitment to their emotional and financial well-being.", image: "compromisso.webp" },
     ],
   },
@@ -176,7 +176,6 @@ export const en = {
     },
     intro: {
       subtitle: "We are an independent wealth management firm focused on supporting wealth decisions with assertiveness, method, and a long-term view.",
-      fullText: "3V Capital is dedicated to serving families, individuals, and companies. We operate with an integrated view of wealth, combining investment allocation, wealth consolidation, financial planning, and continuous monitoring. Our work is based on a simple principle: each wealth portfolio is unique and should be managed in a personalized and disciplined way, aligned with each client's long-term goals. More than pursuing results, we seek to structure consistent decisions, protect wealth, and contribute to building lasting legacies.",
       paragraphs: [
         "3V Capital is dedicated to serving families, individuals, and companies. We operate with an integrated view of wealth, combining investment allocation, wealth consolidation, financial planning, and continuous monitoring.",
         "Our work is based on a simple principle: each wealth portfolio is unique and should be managed in a personalized and disciplined way, aligned with each client's long-term goals. More than pursuing results, we seek to structure consistent decisions, protect wealth, and contribute to building lasting legacies.",

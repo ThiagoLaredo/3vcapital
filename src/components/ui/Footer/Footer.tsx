@@ -11,6 +11,7 @@ import styles from './Footer.module.css';
 const LINKEDIN_URL = 'https://br.linkedin.com/company/3vcapital';
 const EMAIL = 'contato@3vcapital.com.br';
 const WHATSAPP_NUMBER = '5511985479699';
+const LANDLINE_NUMBER = '551135132176';
 const ADDRESS = 'Rua Padre João Manuel, nº 1212, conjuntos 92 e 93\nCerqueira César, CEP 01411-000';
 const NEWSLETTER_FORM_NAME = 'newsletter-footer';
 
@@ -237,6 +238,23 @@ export default function Footer() {
                 ? 'Gestão de patrimônio independente'
                 : 'Independent wealth management'}
             </p>
+
+            <div className={styles.selos}>
+              <Image
+                src="/images/selos/Selo-Anbima-Gestao-de-Recursos.svg"
+                alt="Selo Anbima Gestão de Recursos"
+                width={160}
+                height={100}
+                className={styles.selo}
+              />
+              <Image
+                src="/images/selos/Selo-Anbima-Gestao-de-Patrimonios.svg"
+                alt="Selo Anbima Gestão de Patrimônios"
+                width={160}
+                height={100}
+                className={styles.selo}
+              />
+            </div>
           </div>
 
           <div className={styles.blockContact}>
@@ -251,6 +269,9 @@ export default function Footer() {
               className={styles.link}
             >
               +55 11 98547-9699
+            </a>
+            <a href={`tel:+${LANDLINE_NUMBER}`} className={styles.link}>
+              +55 11 3513-2176
             </a>
             <a
               href={LINKEDIN_URL}
@@ -283,23 +304,6 @@ export default function Footer() {
         </div>
 
         <div className={styles.bottom}>
-          <div className={styles.selos}>
-            <Image
-              src="/images/selos/Selo-Anbima-Gestao-de-Recursos.svg"
-              alt="Selo Anbima Gestão de Recursos"
-              width={160}
-              height={100}
-              className={styles.selo}
-            />
-            <Image
-              src="/images/selos/Selo-Anbima-Gestao-de-Patrimonios.svg"
-              alt="Selo Anbima Gestão de Patrimônios"
-              width={160}
-              height={100}
-              className={styles.selo}
-            />
-          </div>
-
           <p className={styles.copyright}>
             © {new Date().getFullYear()} {translations.Footer.rights}
           </p>

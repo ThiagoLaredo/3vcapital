@@ -1,5 +1,5 @@
 .footer {
-  background: var(--primary-color);
+  background: var(--background-secondary-gray-1);
   color: var(--text-on-dark);
   padding: 6rem 0;
   width: 100%;
@@ -19,7 +19,7 @@
   margin-bottom: 3rem;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(8, 86, 87, 0.92);
+  background: var(--background-secondary-gray-2);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
 }
 
@@ -162,10 +162,28 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+.mainRow > * {
+  position: relative;
+  padding-top: 1.15rem;
+}
+
+.mainRow > *::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 72px;
+  transform: translateX(-50%);
+  border-top-color: #0e9899;
+  border-top-style: solid;
+  border-top-width: 4px;
+}
+
 .blockLogo {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   gap: 1.25rem;
 }
 
@@ -194,6 +212,8 @@
 .blockContact {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 0.5rem;
 }
 
@@ -227,16 +247,15 @@
 
 .linkedinIcon {
   font-size: 1.25rem;
+  color: var(--white);
 }
 
 .blockMap {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 0.9rem;
-}
-
-.blockMap h3 {
-  margin-bottom: 0;
 }
 
 .addressText {
@@ -265,12 +284,12 @@
 .officeImageWrap {
   position: relative;
   width: 100%;
-  height: 220px;
+  height: 260px;
   border-radius: 10px;
   overflow: hidden;
 }
 
-.officeImageWrap::after {
+/* .officeImageWrap::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -279,7 +298,7 @@
   mix-blend-mode: multiply;
   pointer-events: none;
   border-radius: inherit;
-}
+} */
 
 .officeImage {
   object-fit: cover;
@@ -289,16 +308,18 @@
 /* Selos */
 .selos {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 2rem;
+  gap: 1rem;
+  flex-wrap: nowrap;
 }
 
 .selo {
   opacity: 0.85;
   transition: opacity 0.2s ease;
-  width: 160px;
-  height: 100px;
+  width: 180px;
+  height: auto;
   object-fit: contain;
 }
 
@@ -311,7 +332,7 @@
   padding-top: 1.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
@@ -391,8 +412,8 @@
   }
 
   .blockMap {
-    align-items: stretch;
-    text-align: left;
+    align-items: center;
+    text-align: center;
   }
 
   .mapWrap {
@@ -407,7 +428,7 @@
 
   .selos {
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .bottom {
@@ -417,8 +438,8 @@
   }
   
   .selo {
-      width: 100px;
-      height: 100px;
+      width: 80%;
+      height: auto;
     }
 }
 
