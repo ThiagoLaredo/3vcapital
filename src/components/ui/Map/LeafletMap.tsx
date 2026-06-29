@@ -9,7 +9,7 @@ interface Props {
 }
 
 export default function LeafletMap({
-  center = { lat: -23.565028, lng: -46.665078 },
+  center = { lat: -23.5669368, lng: -46.6676223 },
   height = '220px',
   zoom = 16,
 }: Props) {
