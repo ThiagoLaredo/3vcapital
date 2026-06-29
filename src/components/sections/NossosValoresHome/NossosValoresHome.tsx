@@ -19,7 +19,7 @@ const IMAGE_SIZES = '(max-width: 768px) 100vw, 46vw';
 const TEXTS = {
   pt: {
     label: 'Nossos valores',
-    before: 'Nossos valores refletem nosso compromisso com',
+    before: 'Nossos valores refletem nosso compromisso com ',
     phrase: 'a transparência, a ética, a excelência e o relacionamento de longo prazo',
     after: ' com clientes e parceiros.',
   },
