@@ -105,7 +105,7 @@ export default function HeroSection() {
         <div className={styles.heroContent}>
           <h1 className={styles.title}>{hero.title}</h1>
           <Link href="#experience" className={styles.ctaButton}>
-            Conheça a 3V Capital
+            {hero.buttonHero}
           </Link>
           {/* <p className={styles.paragraph}>{hero.paragraph}</p> */}
         </div>

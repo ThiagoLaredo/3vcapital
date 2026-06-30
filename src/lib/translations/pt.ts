@@ -16,7 +16,7 @@ export const pt = {
   Home: {
     hero: {
       title: "Onde a experiência se transforma em performance.",
-      paragraph: "Realizamos a gestão do patrimônio para famílias, indivíduos e empresas, com base em seu momento de vida, suas metas e objetivos."
+      buttonHero: "Conheça a 3V Capital"
     },
     transactions: {
       title: "Nossos números",

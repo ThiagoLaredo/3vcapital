@@ -16,7 +16,7 @@ export const en = {
   Home: {
     hero: {
       title: "Where experience transforms into performance.",
-      paragraph: "We manage assets for families, individuals, and companies, based on their life stage, goals, and objectives."
+      buttonHero: "Get to know 3V Capital",
     },
     transactions: {
       title: "Transactions with participation of our partners",
