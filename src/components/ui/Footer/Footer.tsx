@@ -150,7 +150,7 @@ export default function Footer() {
             name={NEWSLETTER_FORM_NAME}
             method="POST"
             data-netlify="true"
-            netlify-honeypot="bot-field"
+            data-netlify-honeypot="bot-field"
             className={styles.newsletterForm}
             onSubmit={handleNewsletterSubmit}
           >
