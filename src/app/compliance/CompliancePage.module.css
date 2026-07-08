@@ -3,6 +3,10 @@
   min-height: 100vh;
 }
 
+.pageIntro {
+  padding: 4rem 0 2rem;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

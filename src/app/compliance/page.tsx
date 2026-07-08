@@ -163,6 +163,7 @@ export default function CompliancePage() {
       <PageIntroSection
         title={dict?.introTitle || "Documentos Regulatórios"}
         fullText=""
+        className={styles.pageIntro}
       />
 
       <section className={styles.cyberSection} aria-labelledby="cybersecurity-title">
