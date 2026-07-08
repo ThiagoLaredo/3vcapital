@@ -12,6 +12,11 @@ const EMAIL = 'contato@3vcapital.com.br';
 const WHATSAPP_NUMBER = '5511985479699';
 const LANDLINE_NUMBER = '551135132176';
 const LINKEDIN_URL = 'https://br.linkedin.com/company/3vcapital';
+const CONTACT_FORM_NAME = 'contact-page';
+
+function encodeFormData(data: Record<string, string>) {
+  return new URLSearchParams(data).toString();
+}
 
 export default function ContatoPage() {
   const { language } = useLanguage();
@@ -34,7 +39,7 @@ export default function ContatoPage() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       setStatus('error');
@@ -46,27 +51,25 @@ export default function ContatoPage() {
     setStatusMessage(language === 'pt' ? 'Enviando...' : 'Sending...');
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/' + EMAIL, {
+      const formDataFromDom = new FormData(e.currentTarget);
+
+      const response = await fetch('/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({
-          Nome: formData.name,
-          Email: formData.email,
-          Telefone: formData.phone || '—',
-          Empresa: formData.company || '—',
-          Mensagem: formData.message,
-          _subject: `3V Capital - ${formData.name}`,
-          _template: 'table',
-          _captcha: 'false',
+        body: encodeFormData({
+          'form-name': CONTACT_FORM_NAME,
+          'bot-field': String(formDataFromDom.get('bot-field') || ''),
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          message: formData.message,
         }),
       });
 
-      const result = await response.json();
-
-      if (response.ok && result.success) {
+      if (response.ok) {
         setStatus('success');
         setStatusMessage(dict.form?.successMessage || (language === 'pt' ? 'Mensagem enviada! Em breve retornaremos.' : 'Message sent! We will get back to you soon.'));
         setFormData({ name: '', email: '', phone: '', company: '', message: '' });
@@ -156,7 +159,20 @@ export default function ContatoPage() {
                   {dict.form?.description || (language === 'pt' ? 'Preencha o formulário. Em breve retornaremos.' : 'Fill out the form. We will get back to you soon.')}
                 </p>
 
-                <form onSubmit={handleSubmit} className={styles.contactForm}>
+                <form
+                  name={CONTACT_FORM_NAME}
+                  method="POST"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={handleSubmit}
+                  className={styles.contactForm}
+                >
+                  <input type="hidden" name="form-name" value={CONTACT_FORM_NAME} />
+                  <p hidden>
+                    <label>
+                      Do not fill this field if you are human: <input name="bot-field" />
+                    </label>
+                  </p>
                   <div className={styles.formRow}>
                     <div className={`${styles.formGroup} ${styles.half}`}>
                       <input
