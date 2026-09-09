@@ -7,12 +7,14 @@ import NossosServicos from '../components/sections/NossosServicos/NossosServicos
 import NossosValoresHome from '../components/sections/NossosValoresHome/NossosValoresHome';
 import CartaDoMesFull from '../components/sections/CartaDoMesFull/CartaDoMesFull';
 import HomeLatestNews from '../components/sections/news/HomeLatestNews';
+// import EventPopup from '../components/ui/EventPopup/EventPopup';
 
 export default function Home() {
   useResetScrollOnNav();
 
   return (
     <>
+      {/* <EventPopup /> */}
       <HeroSection />
       <Experience />
       <NossosServicos />
