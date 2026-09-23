@@ -1,0 +1,47 @@
+<svg width="800" height="320" viewBox="0 0 800 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="320" rx="18" fill="#EDF7F7"/>
+  <g opacity="0.75">
+    <path d="M0 44H800" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M0 86H800" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M0 128H800" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M0 170H800" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M0 212H800" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M0 254H800" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M0 296H800" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M80 0V320" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M160 0V320" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M240 0V320" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M320 0V320" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M400 0V320" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M480 0V320" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M560 0V320" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M640 0V320" stroke="#D9EFEF" stroke-width="2"/>
+    <path d="M720 0V320" stroke="#D9EFEF" stroke-width="2"/>
+  </g>
+
+  <g opacity="0.5">
+    <path d="M120 218C173 171 190 143 223 122C255 101 284 99 318 115C349 131 374 172 409 175C447 178 476 152 506 130C536 108 574 97 611 111C653 126 682 167 739 171" stroke="#BEE6E4" stroke-width="16" stroke-linecap="round"/>
+    <path d="M40 97C100 121 120 146 162 161C206 176 247 175 286 159C333 140 365 106 407 94C449 82 488 92 532 112C585 137 635 146 709 136" stroke="#CCEFEF" stroke-width="10" stroke-linecap="round"/>
+    <path d="M90 266C136 236 182 211 239 218C294 224 325 246 353 267C387 292 429 317 493 297C551 277 615 245 719 252" stroke="#B5E1E0" stroke-width="10" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.25">
+    <path d="M154 0L110 320" stroke="#A8DCD8" stroke-width="4"/>
+    <path d="M598 0L645 320" stroke="#A8DCD8" stroke-width="4"/>
+    <path d="M449 0L392 320" stroke="#A8DCD8" stroke-width="4"/>
+    <path d="M0 71L800 111" stroke="#A8DCD8" stroke-width="4"/>
+    <path d="M0 250L800 196" stroke="#A8DCD8" stroke-width="4"/>
+  </g>
+
+  <g>
+    <circle cx="500" cy="180" r="76" fill="#DDF4F4" opacity="0.7"/>
+    <path d="M500 92C548.3 92 587 130.7 587 179C587 225.9 540.7 283 500 292C459.3 283 413 225.9 413 179C413 130.7 451.7 92 500 92Z" fill="#0E9899"/>
+    <path d="M500 130C527 130 549 151.9 549 179C549 206.1 527 228 500 228C473 228 451 206.1 451 179C451 151.9 473 130 500 130Z" fill="#FFFFFF"/>
+  </g>
+
+  <g>
+    <path d="M160 216C160 195.7 176.7 179 197 179H346C366.3 179 383 195.7 383 216V242C383 262.3 366.3 279 346 279H197C176.7 279 160 262.3 160 242V216Z" fill="#F7FFFE" fill-opacity="0.8"/>
+    <text x="170" y="235" fill="#0E9899" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">3V Capital</text>
+    <text x="170" y="259" fill="#4A6667" font-family="Arial, Helvetica, sans-serif" font-size="14">São Paulo · Brasil</text>
+  </g>
+</svg>
