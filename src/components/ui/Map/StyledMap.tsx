@@ -1,6 +1,4 @@
 "use client";
-import { useEffect, useRef } from 'react';
-import Script from 'next/script';
 
 interface Props {
   center?: { lat: number; lng: number };
@@ -8,63 +6,76 @@ interface Props {
   zoom?: number;
 }
 
-type GoogleMapStyle = {
-  featureType?: string;
-  elementType?: string;
-  stylers: Array<{ color?: string }>;
-};
-
 export default function StyledMap({
-  center = { lat: -23.5669368, lng: -46.6676223 },
   height = '220px',
-  zoom = 22,
 }: Props) {
-  const mapRef = useRef<HTMLDivElement | null>(null);
-  const initializedRef = useRef(false);
-
-  const styles: GoogleMapStyle[] = [
-    { elementType: 'geometry', stylers: [{ color: '#f5f5f5' }] },
-    { elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] },
-    { featureType: 'water', stylers: [{ color: '#cfe8e8' }] },
-    { featureType: 'road', stylers: [{ color: '#e0e0e0' }] },
-    { featureType: 'road.highway', elementType: 'geometry', stylers: [{ color: '#d1f0ef' }] },
-    { featureType: 'poi', stylers: [{ color: '#eeeeee' }] },
-    { featureType: 'road.highway', elementType: 'labels.text.fill', stylers: [{ color: '#0e9899' }] },
-    { featureType: 'poi.park', stylers: [{ color: '#dff0ef' }] },
-  ];
-
-  function initMap() {
-    if (initializedRef.current) return;
-    if (!(window as any).google || !mapRef.current) return;
-    try {
-      const map = new (window as any).google.maps.Map(mapRef.current, {
-        center,
-        zoom,
-        styles,
-        disableDefaultUI: false,
-      });
-      new (window as any).google.maps.Marker({ position: center, map });
-      initializedRef.current = true;
-    } catch (e) {
-      // falha silenciosa
-    }
-  }
-
-  useEffect(() => {
-    // Caso o script já esteja carregado antes do onLoad
-    if ((window as any).google && !initializedRef.current) {
-      initMap();
-    }
-  }, []);
+  const markerX = 60;
+  const markerY = 72;
 
   return (
-    <>
-      <Script
-        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}
-        onLoad={initMap}
-        strategy="lazyOnload"
+    <div
+      style={{
+        width: '100%',
+        height,
+        borderRadius: 12,
+        position: 'relative',
+        overflow: 'hidden',
+        background: 'linear-gradient(135deg, #effaf9 0%, #dfeef0 100%)',
+        border: '1px solid rgba(14, 152, 153, 0.25)',
+      }}
+    >
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage:
+            'radial-gradient(circle at 15% 20%, rgba(14,152,153,0.12) 0, rgba(14,152,153,0.12) 8px, transparent 9px), radial-gradient(circle at 75% 60%, rgba(14,152,153,0.12) 0, rgba(14,152,153,0.12) 10px, transparent 11px), linear-gradient(90deg, rgba(255,255,255,0.2) 0, rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.2) 0, rgba(255,255,255,0.2) 1px, transparent 1px)',
+          backgroundSize: '120px 120px, 120px 120px, 24px 24px, 24px 24px',
+        }}
       />
-      <div ref={mapRef} style={{ width: '100%', height }} />
-    </>
+      <div
+        style={{
+          position: 'absolute',
+          left: `${markerX}%`,
+          top: `${markerY}%`,
+          transform: 'translate(-50%, -50%) rotate(-45deg)',
+          width: 18,
+          height: 18,
+          borderRadius: '50% 50% 50% 0',
+          background: '#0e9899',
+          boxShadow: '0 10px 24px rgba(14,152,153,0.35)',
+          zIndex: 2,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          left: `${markerX}%`,
+          top: `${markerY}%`,
+          transform: 'translate(-50%, -50%)',
+          width: 8,
+          height: 8,
+          borderRadius: '50%',
+          background: '#fff',
+          zIndex: 3,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          left: 12,
+          right: 12,
+          bottom: 10,
+          textAlign: 'center',
+          fontSize: 12,
+          color: '#0e9899',
+          fontWeight: 700,
+          letterSpacing: 0.4,
+          zIndex: 4,
+        }}
+      >
+        3V Capital • São Paulo
+      </div>
+    </div>
   );
 }

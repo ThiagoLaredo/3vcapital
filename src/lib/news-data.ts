@@ -2,6 +2,19 @@
 import newsData from './news.json';
 import { NewsItem } from '@/types/news';
 
+export type NewsLanguage = 'pt' | 'en';
+
+export function getLocalizedNews(news: NewsItem, language: NewsLanguage): NewsItem {
+  if (language !== 'en') return news;
+
+  return {
+    ...news,
+    title: news.titleEn || news.title,
+    excerpt: news.excerptEn || news.excerpt,
+    content: news.contentEn || news.content,
+  };
+}
+
 export function getNews(): NewsItem[] {
   // Garante que sempre retorna um array
   if (!newsData || !Array.isArray(newsData)) {

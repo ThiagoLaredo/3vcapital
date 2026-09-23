@@ -6,6 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, User, ArrowRight, Image as ImageIcon } from 'lucide-react';
 import { NewsItem } from '@/types/news';
+import { getLocalizedNews } from '@/lib/news-data';
+import { useLanguage } from '@/contexts/LanguageContext';
 import styles from './NewsCard.module.css';
 
 interface NewsCardProps {
@@ -14,6 +16,8 @@ interface NewsCardProps {
 
 export default function NewsCard({ news }: NewsCardProps) {
   const [imageError, setImageError] = useState(false);
+  const { language } = useLanguage();
+  const localizedNews = getLocalizedNews(news, language);
   
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -34,7 +38,7 @@ export default function NewsCard({ news }: NewsCardProps) {
             {news.image && !imageError ? (
               <Image
                 src={news.image}
-                alt={news.title}
+                alt={localizedNews.title}
                 fill
                 className={styles.image}
                 quality={80}
@@ -68,10 +72,10 @@ export default function NewsCard({ news }: NewsCardProps) {
             </div>
 
             {/* Título */}
-            <h3 className={styles.cardTitle}>{news.title}</h3>
+            <h3 className={styles.cardTitle}>{localizedNews.title}</h3>
 
             {/* Descrição breve */}
-            <p className={styles.cardExcerpt}>{news.excerpt}</p>
+            <p className={styles.cardExcerpt}>{localizedNews.excerpt}</p>
 
             {/* Botão Leia Mais */}
             <div className={styles.cardAction}>

@@ -5,6 +5,9 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { formatText } from '@/utils/FormattedText/formatText';
 import { getNewsBySlug } from '@/lib/news-data';
+import { getLocalizedNews } from '@/lib/news-data';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { NewsItem } from '@/types/news';
 import styles from './page.module.css';
 import Image from 'next/image';
 import { Image as ImageIcon, Calendar, User, ArrowLeft } from 'lucide-react';
@@ -14,10 +17,11 @@ interface NoticiaPageClientProps {
 }
 
 export default function NoticiaPageClient({ slug }: NoticiaPageClientProps) {
-  const [news, setNews] = useState<any>(null);
+  const [news, setNews] = useState<NewsItem | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [imageError, setImageError] = useState(false);
+  const { language } = useLanguage();
 
   useEffect(() => {
     try {
@@ -52,6 +56,8 @@ export default function NoticiaPageClient({ slug }: NoticiaPageClientProps) {
     );
   }
 
+  const localizedNews = getLocalizedNews(news, language);
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('pt-BR', {
@@ -61,7 +67,7 @@ export default function NoticiaPageClient({ slug }: NoticiaPageClientProps) {
     });
   };
 
-  const formattedContent = formatText(news.content);
+  const formattedContent = formatText(localizedNews.content);
 
   return (
     <div className={styles.noticiaPage}>
@@ -74,7 +80,7 @@ export default function NoticiaPageClient({ slug }: NoticiaPageClientProps) {
               <div className={styles.articleImage}>
                 <Image
                   src={news.image}
-                  alt={news.title}
+                  alt={localizedNews.title}
                   width={1200}
                   height={600}
                   className={styles.image}
@@ -92,7 +98,7 @@ export default function NoticiaPageClient({ slug }: NoticiaPageClientProps) {
             {/* Conteúdo formatado */}
             <div className={styles.articleContent}>
               {/* Título da notícia (repetido antes do conteúdo) */}
-              <h1 className={styles.articleTitle}>{news.title}</h1>
+              <h1 className={styles.articleTitle}>{localizedNews.title}</h1>
               
               {/* Metadados (data e autor) */}
               <div className={styles.articleMeta}>

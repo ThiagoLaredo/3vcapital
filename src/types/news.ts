@@ -5,6 +5,9 @@ export interface NewsItem {
   title: string;
   excerpt: string;
   content: string;
+  titleEn?: string;
+  excerptEn?: string;
+  contentEn?: string;
   image: string;
   date: string; // formato YYYY-MM-DD
   author?: string;

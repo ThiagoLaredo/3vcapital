@@ -7,7 +7,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { pt, en } from '@/lib/translations';
-import { getNews } from '@/lib/news-data';
+import { getLocalizedNews, getNews } from '@/lib/news-data';
 import styles from './HomeLatestNews.module.css';
 
 if (typeof window !== 'undefined') {
@@ -68,13 +68,16 @@ export default function HomeLatestNews() {
         </header>
 
         <div ref={gridRef} className={styles.grid}>
-          {latestNews.map((item) => (
+          {latestNews.map((item) => {
+            const localizedItem = getLocalizedNews(item, language);
+
+            return (
             <article key={item.id} className={styles.card}>
               <Link href={`/noticias/${item.slug}`} className={styles.cardLink}>
                 <div className={styles.imageWrapper}>
                   <Image
                     src={item.image}
-                    alt={item.title}
+                    alt={localizedItem.title}
                     fill
                     quality={100}
                     sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) calc(52vw - 2rem), 380px"
@@ -83,11 +86,12 @@ export default function HomeLatestNews() {
                 </div>
 
                 <div className={styles.content}>
-                  <h3 className={styles.cardTitle}>{item.title}</h3>
+                  <h3 className={styles.cardTitle}>{localizedItem.title}</h3>
                 </div>
               </Link>
             </article>
-          ))}
+            );
+          })}
         </div>
 
         <Link href="/noticias" className={`${styles.viewAllLink} ${styles.viewAllLinkMobile}`}>
