@@ -3,6 +3,9 @@ const nextConfig = {
   images: {
     // Formato otimizado - WebP é suficiente se suas imagens já estão em WebP
     formats: ['image/webp'],
+
+    // Permite que os cards usem a qualidade definida no componente
+    qualities: [75, 100],
     
     // Tamanhos de dispositivo otimizados para performance
     deviceSizes: [480, 640, 750, 828, 1080, 1200],

@@ -76,8 +76,8 @@ export default function HomeLatestNews() {
                     src={item.image}
                     alt={item.title}
                     fill
-                    quality={90}
-                    sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) calc(52vw - 2rem), 190px"
+                    quality={100}
+                    sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) calc(52vw - 2rem), 380px"
                     className={styles.image}
                   />
                 </div>
