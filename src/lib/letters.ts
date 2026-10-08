@@ -25,6 +25,16 @@ function getPdfUrl(year: number, month: number): string {
 
 // Dados das cartas mensais (APENAS DE 2023 PARA FRENTE)
 export const lettersData: MonthlyLetter[] = [
+       {
+    id: '2026-09',
+    year: 2026,
+    month: 9,
+    monthName: 'Setembro',
+    pdfUrl: '/pdfs/pt/2026-09.pdf', 
+    pdfUrlEn: '/pdfs/en/2026-09.pdf', 
+    publishedDate: '2026-09-02',
+    fileSize: '652 KB',
+  },
      {
     id: '2026-08',
     year: 2026,

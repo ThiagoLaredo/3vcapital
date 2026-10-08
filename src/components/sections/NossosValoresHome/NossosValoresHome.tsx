@@ -47,28 +47,41 @@ export default function NossosValoresHome() {
     const container = cardsListRef.current;
     if (!container) return;
 
-    const cards = container.querySelectorAll<HTMLElement>(`.${styles.valueCard}`);
-    const ctx = gsap.context(() => {
-      cards.forEach((card) => {
-        gsap.fromTo(
-          card,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.85,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 88%',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      });
-    }, container);
+    let ctx: ReturnType<typeof gsap.context> | null = null;
+    const rafId = requestAnimationFrame(() => {
+      if (!container.isConnected) return;
 
-    return () => ctx.revert();
+      const cards = container.querySelectorAll<HTMLElement>(`.${styles.valueCard}`);
+
+      try {
+        ctx = gsap.context(() => {
+          cards.forEach((card) => {
+            gsap.fromTo(
+              card,
+              { opacity: 0, y: 50 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.85,
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: card,
+                  start: 'top 88%',
+                  toggleActions: 'play none none none',
+                },
+              }
+            );
+          });
+        }, container);
+      } catch {
+        // Ignora SecurityError ao acessar frame cross-origin (ex.: mapa no rodapé)
+      }
+    });
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      ctx?.revert();
+    };
   }, [animationKey]);
 
   useEffect(() => {

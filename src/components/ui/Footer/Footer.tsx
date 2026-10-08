@@ -307,6 +307,12 @@ export default function Footer() {
           <p className={styles.copyright}>
             © {new Date().getFullYear()} {translations.Footer.rights}
           </p>
+          <p className={styles.developerCredit}>
+            {language === 'pt' ? 'Desenvolvido por ' : 'Developed by '}
+            <a href="https://olatu.com.br/" target="_blank" rel="noopener noreferrer">
+              Olatu
+            </a>
+          </p>
         </div>
       </div>
     </footer>

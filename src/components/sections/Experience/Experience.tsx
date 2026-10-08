@@ -37,54 +37,64 @@ export default function Experience() {
     if (!section || !mainStatement || !decorativeCurve) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const paths = decorativeCurve.querySelectorAll('path');
-    if (paths.length === 0) return;
+    let ctx: ReturnType<typeof gsap.context> | null = null;
+    const rafId = requestAnimationFrame(() => {
+      if (!section.isConnected || !mainStatement.isConnected || !decorativeCurve.isConnected) return;
 
-    const ctx = gsap.context(() => {
-      paths.forEach((path) => {
-        const length = path.getTotalLength();
-        gsap.set(path, {
-          strokeDasharray: length,
-          strokeDashoffset: length,
-          opacity: 0.15,
-        });
-      });
+      const paths = decorativeCurve.querySelectorAll('path');
+      if (paths.length === 0) return;
 
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: mainStatement,
-          start: 'top 70%',
-          toggleActions: 'play none play reverse',
-        },
-      });
+      try {
+        ctx = gsap.context(() => {
+          paths.forEach((path) => {
+            const length = path.getTotalLength();
+            gsap.set(path, {
+              strokeDasharray: length,
+              strokeDashoffset: length,
+              opacity: 0.15,
+            });
+          });
 
-      timeline
-        .to({}, { duration: 1.35 })
-        .fromTo(
-          decorativeCurve,
-          { y: 16, opacity: 0 },
-          {
-            y: 0,
-            opacity: 0.9,
-            duration: 0.72,
-            ease: 'power2.out',
-          }
-        )
-        .to(
-          paths,
-          {
-            strokeDashoffset: 0,
-            opacity: 1,
-            duration: 0.85,
-            stagger: 0.16,
-            ease: 'power2.out',
-          },
-          '-=0.35'
-        );
-    }, section);
+          const timeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: mainStatement,
+              start: 'top 70%',
+              toggleActions: 'play none play reverse',
+            },
+          });
+
+          timeline
+            .to({}, { duration: 1.35 })
+            .fromTo(
+              decorativeCurve,
+              { y: 16, opacity: 0 },
+              {
+                y: 0,
+                opacity: 0.9,
+                duration: 0.72,
+                ease: 'power2.out',
+              }
+            )
+            .to(
+              paths,
+              {
+                strokeDashoffset: 0,
+                opacity: 1,
+                duration: 0.85,
+                stagger: 0.16,
+                ease: 'power2.out',
+              },
+              '-=0.35'
+            );
+        }, section);
+      } catch {
+        // Ignora SecurityError ao acessar frame cross-origin (ex.: mapa no rodapé)
+      }
+    });
 
     return () => {
-      ctx.revert();
+      cancelAnimationFrame(rafId);
+      ctx?.revert();
     };
   }, [animationKey]);
 
