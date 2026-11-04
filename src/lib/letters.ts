@@ -31,10 +31,10 @@ export const lettersData: MonthlyLetter[] = [
     year: 2026,
     month: 10,
     monthName: 'Outubro',
-    pdfUrl: '/pdfs/pt/2026-10pdf', 
-    pdfUrlEn: '/pdfs/en/2026-10pdf', 
+    pdfUrl: '/pdfs/pt/2026-10.pdf', 
+    pdfUrlEn: '/pdfs/en/2026-10.pdf', 
     publishedDate: '2026-10-0',
-    fileSize: '652 KB',
+    fileSize: '249 KB',
   },
        {
     id: '2026-09',
